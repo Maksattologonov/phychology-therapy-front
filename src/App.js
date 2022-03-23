@@ -1,10 +1,11 @@
 import React from 'react';
+import Routing from "./Controller/routing/Routing";
 
 function App() {
     return (
-        <div>
-            React app with webpack
-        </div>
+        <>
+            <Routing/>
+        </>
     );
 }
 export default App;

@@ -10,8 +10,8 @@ module.exports = {
     entry: path.resolve(__dirname, 'src', 'index.js'),
 
     output: {
-        path: path.resolve(__dirname, 'build'),
         publicPath: '/',
+        path: path.resolve(__dirname, 'build'),
         filename: '[name].[hash].js',
     },
 
@@ -43,7 +43,7 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(png|jpe?g|gif)$/i,
+                test: /\.(png|jpe?g|gif|ico)$/i,
                 use: [
                     {
                         loader: 'file-loader',
@@ -63,7 +63,7 @@ module.exports = {
 
     devServer: {
         host: 'localhost',
-        port: 8000,
+        port: 8080,
         historyApiFallback: true,
         open: true,
         hot: true
@@ -91,7 +91,7 @@ module.exports = {
     plugins: [
         new HtmlWebPackPlugin({
             template: './public/index.html',
-            // favicon: 'public/favicon.ico'
+            favicon: './public/favicon.png'
         }),
         new CleanWebpackPlugin(),
     ],
