@@ -1,9 +1,11 @@
-
+import React from 'react';
+import Routing from "./Controller/routing/Routing";
 
 function App() {
-  return (
-      <>React</>
-  );
+    return (
+        <>
+            <Routing/>
+        </>
+    );
 }
-
 export default App;
