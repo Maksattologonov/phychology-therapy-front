@@ -1,0 +1,25 @@
+.card_wrapper{
+  background-color: #E0E8E6;
+  padding: 20px 100px;
+  cursor: pointer;
+  border-radius: 15px;
+  margin: 15px 0;
+  h4{
+    margin: 15px 0;
+    color: #608360;
+    display: flex;
+    align-items: center;
+  }
+  h4:before{
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: #1D2130;
+    margin-right: 10px;
+    border-radius: 1px;
+  }
+  p{
+    margin: 15px 0;
+  }
+}
