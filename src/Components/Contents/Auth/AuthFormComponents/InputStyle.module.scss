@@ -1,0 +1,54 @@
+.input_wrapper{
+  width: 100%;
+  margin-bottom: 20px;
+  label{
+    width: inherit;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    color: rgba(255,255,255,.7);
+    display: block;
+  }
+  input{
+    width: inherit;
+    height: 35px;
+    padding-left: 15px;
+    border: none;
+    border-radius: 20px;
+    background: rgba(255,255,255,.15);
+    color: #ffffff;
+    font-size: 13px;
+  }
+  input:focus {
+    outline: none;
+    background: rgba(255,255,255,.3);
+  }
+  span{
+    width: inherit;
+    padding: 0 15px;
+    font-size: 14px;
+    color: #883210;
+    display: none;
+  }
+}
+
+.button{
+  width: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 13px;
+  text-align: center;
+  color: #ffffff;
+  height: 35px;
+  border: none;
+  border-radius: 20px;
+  margin-top: 23px;
+  background: rgba(28, 96, 6, 0.2);
+  transition: 300ms ease-in-out;
+}
+button:hover{
+  cursor: pointer;
+  background: rgba(28, 96, 6, 0.4);
+}
