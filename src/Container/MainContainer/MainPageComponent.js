@@ -3,7 +3,7 @@ import HomePageComponent from "../../Components/Contents/HomePageComponent/HomeP
 import {
     FORM, FORMS_LIST,
     HOME,
-    PSYCHOLOGIST,
+    PSYCHOLOGIST, PSYCHOLOGIST_APPOINTMENT,
     PUBLICATIONS,
     PUBLICATIONS_PUBLICATION,
     WORK_WITH_WEBSITE
@@ -19,6 +19,7 @@ import FormsComponent from "../../Components/Contents/FormPageComponent/FormsLis
 import PsychologistPageComponent from "../../Components/Contents/PsychologistPageComponent/PsychologistPageComponent";
 import WorkWithWebsitePageComponent
     from "../../Components/Contents/WorkWithWebsitePageComponent/WorkWithWebsitePageComponent";
+import AppointmentComponent from "../../Components/Contents/PsychologistPageComponent/Appointment/AppointmentComponent";
 
 class MainPageComponent extends React.Component{
     constructor(props) {
@@ -34,6 +35,9 @@ class MainPageComponent extends React.Component{
                 break;
             case PSYCHOLOGIST:
                 this.content = <PsychologistPageComponent/>;
+                break;
+            case PSYCHOLOGIST_APPOINTMENT:
+                this.content = <AppointmentComponent/>;
                 break;
             case PUBLICATIONS:
                 this.content = <PublicationsPageComponent/>

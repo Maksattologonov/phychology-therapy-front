@@ -1,0 +1,108 @@
+
+.appointment_wrapper{
+  width: 100%;
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+  form{
+    width: 1000px;
+    background: #A7D7A8;
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+    img{
+      width: 43%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .inputs_block{
+      width: 57%;
+      padding: 50px 80px;
+      .title_text{
+        color: #4D383E;
+        width: 100%;
+        content: '';
+        display: block;
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .select_box {
+        cursor: pointer;
+        position : relative;
+        margin: 25px 0;
+        width: 100%;
+      }
+
+      .select, .label {
+        color: #414141;
+        display: block;
+        font: 400 17px/2em 'Source Sans Pro', sans-serif;
+      }
+
+      .select {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        padding: 5px 0;
+        height: 40px;
+        opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        background: none transparent;
+        border: 0 none;
+      }
+      .select_box1 {
+        background: #608360;
+        color: white;
+        border-radius: 5px;
+      }
+
+      .label {
+        position: relative;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+      .label::after {
+        content: "▼";
+        font-size: 12px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 5px 15px;
+        border-left: 4px solid #A7D7A8;
+      }
+
+      input{
+        width: 100%;
+        padding: 8px 10px;
+        font-size: 18px;
+        border: none;
+        background-color: rgb(96, 131, 96, 1);
+        margin-bottom: 25px;
+        color: white;
+        border-radius: 5px;
+        &:focus{
+          outline: none;
+          background-color: rgb(96, 131, 96, 0.8);
+        }
+      }
+
+      button{
+        padding: 8px 20px;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #608360;
+        border: none;
+        margin: 20px auto;
+        border-radius: 5px;
+        color: white;
+        &:hover{
+
+        }
+      }
+    }
+  }
+}

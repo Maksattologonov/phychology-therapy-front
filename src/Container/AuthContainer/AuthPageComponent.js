@@ -20,8 +20,7 @@ function AuthPageComponent(props){
         rgba(246,247,249,0.9),
         rgba(246,247,249,0.9)
       ), url(${backgroundImage}) no-repeat center center fixed`}
-    const signInRef = React.createRef();
-    const signUpRef = React.createRef();
+
     let content='';
     let form_title = '';
     let form_type = '';
@@ -58,8 +57,8 @@ function AuthPageComponent(props){
                     <div className={classes.nav}>
                         <ul className={classes.links}>
                             <li><NavLink className={classes.home_link} to={'/home'}><span>Ho</span>me</NavLink></li>
-                            <li><NavLink to={'/auth/registration'} ref={signInRef}  className={form_type==='reg'?classes.sign_active:''}>Sign in</NavLink></li>
-                            <li><NavLink to={'/auth/authorization'} ref={signUpRef} className={form_type==='author'?classes.sign_active:''}> Sign up </NavLink></li>
+                            <li><NavLink to={'/auth/registration'} className={form_type==='reg'?classes.sign_active:''}>Sign up</NavLink></li>
+                            <li><NavLink to={'/auth/authorization'} className={form_type==='author'?classes.sign_active:''}> Sign in </NavLink></li>
                         </ul>
                     </div>
 

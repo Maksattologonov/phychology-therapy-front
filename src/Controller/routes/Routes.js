@@ -4,7 +4,7 @@ import {
     FORM,
     FORMS_LIST,
     HOME,
-    PSYCHOLOGIST,
+    PSYCHOLOGIST, PSYCHOLOGIST_APPOINTMENT,
     PUBLICATIONS,
     PUBLICATIONS_PUBLICATION,
     WORK_WITH_WEBSITE
@@ -14,6 +14,7 @@ export const publicRoutes = [
     {url: '/', type: HOME, exact: true},
     {url: '/home', type: HOME, exact: true},
     {url: '/psychologist', type: PSYCHOLOGIST, exact: true},
+    {url: '/psychologist/appointment', type: PSYCHOLOGIST_APPOINTMENT, exact: true},
     {url: '/publications', type: PUBLICATIONS, exact: true},
     {url: '/publications/publication/:id', type: PUBLICATIONS_PUBLICATION, exact: true},
     {url: '/form', type: FORM, exact: true},
