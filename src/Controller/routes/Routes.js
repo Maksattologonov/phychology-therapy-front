@@ -1,10 +1,10 @@
 import {
     AUTH_AUTHENTICATION,
     AUTH_AUTHORIZATION, AUTH_FORGET_PASS, AUTH_REGISTRATION, AUTH_RESET_PASS,
-    FORM,
+    FORM, FORM_CHAT,
     FORMS_LIST,
     HOME,
-    PSYCHOLOGIST,
+    PSYCHOLOGIST, PSYCHOLOGIST_APPOINTMENT,
     PUBLICATIONS,
     PUBLICATIONS_PUBLICATION,
     WORK_WITH_WEBSITE
@@ -14,10 +14,12 @@ export const publicRoutes = [
     {url: '/', type: HOME, exact: true},
     {url: '/home', type: HOME, exact: true},
     {url: '/psychologist', type: PSYCHOLOGIST, exact: true},
+    {url: '/psychologist/appointment', type: PSYCHOLOGIST_APPOINTMENT, exact: true},
     {url: '/publications', type: PUBLICATIONS, exact: true},
     {url: '/publications/publication/:id', type: PUBLICATIONS_PUBLICATION, exact: true},
     {url: '/form', type: FORM, exact: true},
     {url: '/form/forms', type: FORMS_LIST, exact: true},
+    {url: '/form/chat/:id', type: FORM_CHAT, exact: true},
     {url: '/work-with-website', type: WORK_WITH_WEBSITE, exact: true},
 ]
 

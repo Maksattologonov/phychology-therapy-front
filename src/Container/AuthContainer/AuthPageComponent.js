@@ -12,6 +12,8 @@ import {
 import AuthorizationComponent from "../../Components/Contents/Auth/AuthorizationPageComponent/AuthorizationComponent";
 import ForgetPassComponent from "../../Components/Contents/Auth/ForgetPassPageComponent/ForgetPassComponent";
 import ResetPassComponent from "../../Components/Contents/Auth/ResetPassPageComponent/ResetPassComponent";
+import {ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function AuthPageComponent(props){
 
@@ -20,8 +22,7 @@ function AuthPageComponent(props){
         rgba(246,247,249,0.9),
         rgba(246,247,249,0.9)
       ), url(${backgroundImage}) no-repeat center center fixed`}
-    const signInRef = React.createRef();
-    const signUpRef = React.createRef();
+
     let content='';
     let form_title = '';
     let form_type = '';
@@ -58,8 +59,8 @@ function AuthPageComponent(props){
                     <div className={classes.nav}>
                         <ul className={classes.links}>
                             <li><NavLink className={classes.home_link} to={'/home'}><span>Ho</span>me</NavLink></li>
-                            <li><NavLink to={'/auth/registration'} ref={signInRef}  className={form_type==='reg'?classes.sign_active:''}>Sign in</NavLink></li>
-                            <li><NavLink to={'/auth/authorization'} ref={signUpRef} className={form_type==='author'?classes.sign_active:''}> Sign up </NavLink></li>
+                            <li><NavLink to={'/auth/registration'} className={form_type==='reg'?classes.sign_active:''}>Sign up</NavLink></li>
+                            <li><NavLink to={'/auth/authorization'} className={form_type==='author'?classes.sign_active:''}> Sign in </NavLink></li>
                         </ul>
                     </div>
 
@@ -67,6 +68,8 @@ function AuthPageComponent(props){
 
                 </div>
             </div>
+
+            <ToastContainer/>
 
         </div>
     )

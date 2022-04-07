@@ -1,0 +1,74 @@
+.psychologist_wrapper{
+  width: 100%;
+  padding: 0 100px;
+  .block_1{
+    display: flex;
+    flex-wrap: wrap;
+    img{
+      height: 400px;
+      width: 350px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-left: 70px;
+    }
+    .contacts{
+      padding-left: 100px;
+      span{
+        content: '';
+        display: block;
+        padding: 10px 0;
+      }
+    }
+  }
+
+  .block_2{
+    p{
+      margin-bottom: 15px;
+      padding-left: 70px;
+    }
+  }
+
+  .block_3{
+    p{
+      margin-bottom: 15px;
+      padding-left: 70px;
+    }
+    .block_3_images{
+      padding: 30px 70px;
+      width: 100%;
+      img{
+        margin: 15px;
+        width: 220px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .blocks{
+    width: 100%;
+    margin: 20px 0;
+    h4{
+      content: '';
+      display: block;
+      width: 100%;
+      margin: 30px 0;
+      span{
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+      }
+      span:before{
+        content: '';
+        display: block;
+        width: 60px;
+        height: 2px;
+        background-color: #1D2130;
+        margin-right: 10px;
+        border-radius: 1px;
+      }
+    }
+  }
+}
