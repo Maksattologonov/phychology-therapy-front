@@ -25,13 +25,6 @@
     outline: none;
     background: rgba(255,255,255,.3);
   }
-  span{
-    width: inherit;
-    padding: 0 15px;
-    font-size: 14px;
-    color: #883210;
-    display: none;
-  }
 }
 
 .button{
@@ -44,11 +37,14 @@
   height: 35px;
   border: none;
   border-radius: 20px;
-  margin-top: 23px;
+  margin-top: 15px;
   background: rgba(28, 96, 6, 0.2);
   transition: 300ms ease-in-out;
-}
-button:hover{
   cursor: pointer;
-  background: rgba(28, 96, 6, 0.4);
+}
+
+.but_disabled{
+  background: rgba(28, 96, 6, 0.05);
+  color: #d5d5d5;
+  cursor: not-allowed;
 }

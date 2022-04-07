@@ -4,6 +4,8 @@ import {NavLink} from "react-router-dom";
 
 function MainMenuComponent(){
 
+    let user = false;
+
     return(
         <div className={classes.menu_wrapper}>
 
@@ -18,9 +20,15 @@ function MainMenuComponent(){
                 <NavLink to="/publications">Публикации</NavLink>
                 <NavLink to="/form">Форум</NavLink>
                 <NavLink to="/work-with-website">Работа с сайтом</NavLink>
-                <NavLink to="/auth/authorization">
-                    <button>Войти</button>
-                </NavLink>
+                {
+                    user?
+                        <NavLink to="/auth/authorization">
+                            <span>User name</span>
+                        </NavLink>:
+                        <NavLink to="/auth/authorization">
+                            <button>Войти</button>
+                        </NavLink>
+                }
             </div>
         </div>
     )

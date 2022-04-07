@@ -33,7 +33,7 @@ function AppointmentComponent(){
 
                     </div>
                     <input type='text' placeholder='Ф.И.О.'/>
-                    <input type='text' placeholder='Выберите дату и время консультации'/>
+                    <input type='date' placeholder='Выберите дату и время консультации'/>
                     <button>
                         Записаться
                     </button>

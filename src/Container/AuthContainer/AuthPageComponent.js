@@ -12,6 +12,8 @@ import {
 import AuthorizationComponent from "../../Components/Contents/Auth/AuthorizationPageComponent/AuthorizationComponent";
 import ForgetPassComponent from "../../Components/Contents/Auth/ForgetPassPageComponent/ForgetPassComponent";
 import ResetPassComponent from "../../Components/Contents/Auth/ResetPassPageComponent/ResetPassComponent";
+import {ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function AuthPageComponent(props){
 
@@ -66,6 +68,8 @@ function AuthPageComponent(props){
 
                 </div>
             </div>
+
+            <ToastContainer/>
 
         </div>
     )

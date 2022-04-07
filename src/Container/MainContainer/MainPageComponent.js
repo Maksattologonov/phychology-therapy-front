@@ -1,7 +1,7 @@
 import React from "react";
 import HomePageComponent from "../../Components/Contents/HomePageComponent/HomePageComponent";
 import {
-    FORM, FORMS_LIST,
+    FORM, FORM_CHAT, FORMS_LIST,
     HOME,
     PSYCHOLOGIST, PSYCHOLOGIST_APPOINTMENT,
     PUBLICATIONS,
@@ -20,6 +20,7 @@ import PsychologistPageComponent from "../../Components/Contents/PsychologistPag
 import WorkWithWebsitePageComponent
     from "../../Components/Contents/WorkWithWebsitePageComponent/WorkWithWebsitePageComponent";
 import AppointmentComponent from "../../Components/Contents/PsychologistPageComponent/Appointment/AppointmentComponent";
+import FormChatComponent from "../../Components/Contents/FormPageComponent/FormChat/FormChatComponent";
 
 class MainPageComponent extends React.Component{
     constructor(props) {
@@ -48,6 +49,9 @@ class MainPageComponent extends React.Component{
             case FORMS_LIST:
                 this.content = <FormsComponent/>;
                 break
+            case FORM_CHAT:
+                this.content = <FormChatComponent/>;
+                break;
             case WORK_WITH_WEBSITE:
                 this.content = <WorkWithWebsitePageComponent/>;
                 break;

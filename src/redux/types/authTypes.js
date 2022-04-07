@@ -1,0 +1,21 @@
+// registration types
+
+export const REG_INPUT_FIRST_NAME = 'REG_INPUT_FIRST_NAME';
+export const REG_INPUT_LAST_NAME = 'REG_INPUT_LAST_NAME';
+export const REG_INPUT_NICK_NAME = 'REG_INPUT_NICK_NAME';
+export const REG_INPUT_EMAIL = 'REG_INPUT_EMAIL';
+export const REG_INPUT_PASSWORD = 'REG_INPUT_PASSWORD';
+
+// authorization types
+
+export const AUTH_INPUT_EMAIL = 'AUTH_INPUT_EMAIL';
+export const AUTH_INPUT_PASSWORD = 'AUTH_INPUT_PASSWORD';
+
+// reestablished password
+
+export const RESET_INPUT_NEW_PASSWORD = 'RESET_INPUT_NEW_PASSWORD';
+export const RESET_INPUT_REPEAT_PASSWORD = 'RESET_INPUT_REPEAT_PASSWORD';
+
+export const FORGET_INPUT_EMAIL = 'FORGET_INPUT_EMAIL';
+
+
