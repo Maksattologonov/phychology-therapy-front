@@ -7,13 +7,14 @@ import {
     AUTH_AUTHORIZATION,
     AUTH_FORGET_PASS,
     AUTH_REGISTRATION,
-    AUTH_RESET_PASS
+    AUTH_RESET_PASS, CONFIRM_EMAIL
 } from "../../Controller/types/RouteTypes";
 import AuthorizationComponent from "../../Components/Contents/Auth/AuthorizationPageComponent/AuthorizationComponent";
 import ForgetPassComponent from "../../Components/Contents/Auth/ForgetPassPageComponent/ForgetPassComponent";
 import ResetPassComponent from "../../Components/Contents/Auth/ResetPassPageComponent/ResetPassComponent";
 import {ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ConfirmEmailComponent from "../../Components/Contents/Auth/ConfirmEmail/ConfirmEmailComponent";
 
 function AuthPageComponent(props){
 
@@ -46,6 +47,10 @@ function AuthPageComponent(props){
             content =  <ResetPassComponent/>
             form_title = 'СБРОСИТЬ ПАРОЛЬ'
             break;
+        case CONFIRM_EMAIL:
+            content = <ConfirmEmailComponent/>
+            form_title = "ПОТВЕРДИТЬ EMAIL"
+            break;
         default:
             this.content = 'None'
     }
@@ -69,7 +74,9 @@ function AuthPageComponent(props){
                 </div>
             </div>
 
-            <ToastContainer/>
+            <ToastContainer
+                autoClose={15000}
+            />
 
         </div>
     )

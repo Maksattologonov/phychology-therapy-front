@@ -73,18 +73,36 @@
         border-left: 4px solid #A7D7A8;
       }
 
-      input{
+      .input{
         width: 100%;
         padding: 8px 10px;
         font-size: 18px;
         border: none;
-        background-color: rgb(96, 131, 96, 1);
+        background-color: rgba(96, 131, 96, 1);
         margin-bottom: 25px;
         color: white;
         border-radius: 5px;
         &:focus{
           outline: none;
-          background-color: rgb(96, 131, 96, 0.8);
+          background-color: rgba(96, 131, 96, 0.8);
+        }
+        input{
+          width: 100%;
+          padding: 7px 5px;
+          font-size: 18px;
+          border: none;
+          background-color: rgba(96, 131, 96, 1);
+          color: white;
+          margin-bottom: 5px;
+          border-bottom: 1px solid #A7D7A8;
+          &:focus{
+            outline: none;
+            background-color: rgba(96, 131, 96, 0.8);
+          }
+        }
+        span{
+          font-size: 14px;
+          color: #e0d2cc;
         }
       }
 

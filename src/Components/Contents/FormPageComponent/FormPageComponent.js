@@ -26,11 +26,11 @@ function FormPageComponent(){
                     Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
                     Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
                     Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
-                    <div className={classes.button_wrapper}>
+                    <span className={classes.button_wrapper}>
                         <button onClick={goFormsClickHandler}>
                             Перейти в Форум
                         </button>
-                    </div>
+                    </span>
                 </p>
             </div>
             <div className={classes.right_block}>

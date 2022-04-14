@@ -5,7 +5,7 @@ import {
     HOME,
     PSYCHOLOGIST, PSYCHOLOGIST_APPOINTMENT,
     PUBLICATIONS,
-    PUBLICATIONS_PUBLICATION,
+    PUBLICATIONS_PUBLICATION, USER_ACCOUNT,
     WORK_WITH_WEBSITE
 } from "../../Controller/types/RouteTypes";
 import classes from "./MainPageStyle.module.scss";
@@ -21,12 +21,17 @@ import WorkWithWebsitePageComponent
     from "../../Components/Contents/WorkWithWebsitePageComponent/WorkWithWebsitePageComponent";
 import AppointmentComponent from "../../Components/Contents/PsychologistPageComponent/Appointment/AppointmentComponent";
 import FormChatComponent from "../../Components/Contents/FormPageComponent/FormChat/FormChatComponent";
+import UserAccountPage from "../../Components/Contents/UserPageComponent/UserAccountPage";
+import {toast, ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 class MainPageComponent extends React.Component{
     constructor(props) {
         super(props);
         this.content = 'Null';
     }
+
 
     render() {
 
@@ -58,6 +63,9 @@ class MainPageComponent extends React.Component{
             case PUBLICATIONS_PUBLICATION:
                 this.content = <PublicationMoreInfoComponent/>;
                 break;
+            case USER_ACCOUNT:
+                this.content = <UserAccountPage/>;
+                break;
             default:
                 this.content = 'None';
                 break;
@@ -67,9 +75,14 @@ class MainPageComponent extends React.Component{
                 <MainMenuComponent/>
                 {this.content}
                 <FooterComponent/>
+
+                <ToastContainer
+                    autoClose={15000}
+                />
             </div>
         );
     }
 }
+
 
 export default MainPageComponent;

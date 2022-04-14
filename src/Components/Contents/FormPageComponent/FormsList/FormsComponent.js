@@ -23,11 +23,11 @@ function FormsComponent(){
                 <button onClick={goBack}>
                     {"<- назад"}
                 </button>
-                <FormCardComponent/>
-                <FormCardComponent/>
-                <FormCardComponent/>
-                <FormCardComponent/>
-                <FormCardComponent/>
+                <FormCardComponent id={5}/>
+                <FormCardComponent id={5}/>
+                <FormCardComponent id={5}/>
+                <FormCardComponent id={5}/>
+                <FormCardComponent id={5}/>
             </div>
         </div>
     )

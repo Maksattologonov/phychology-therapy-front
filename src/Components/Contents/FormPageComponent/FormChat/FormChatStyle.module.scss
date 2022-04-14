@@ -1,3 +1,12 @@
 .chat_wrapper{
   padding: 30px 120px 10px 120px;
+  .back{
+    width: 100%;
+    margin-bottom: 20px;
+    color: #462d86;
+    span{
+      cursor: pointer;
+      font-size: 16px;
+    }
+  }
 }

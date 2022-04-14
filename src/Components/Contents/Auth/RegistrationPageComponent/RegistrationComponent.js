@@ -1,21 +1,36 @@
-import React from "react";
+import React, {useEffect} from "react";
 import classes from './RegistrationStyle.module.scss';
 import Input from "../AuthFormComponents/Input";
 import Button from "../AuthFormComponents/Button";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {emailInputHandler, nameInputHandler, passwordInputHandler} from "../AuthFormComponents/InputHandlers";
 import {
+    initialStateReg,
     regEmailAction,
-    regFirstNameAction,
+    regFirstNameAction, registrationUser,
     regLastNameAction,
     regNickNameAction,
     regPasswordAction
 } from "../../../../redux/actions/authActions";
 import {toast} from "react-toastify";
+import {useNavigate} from "react-router-dom";
 
 function RegistrationComponent(){
 
     const state = useSelector(state=>state.registration_state);
+    const isAuthorization = useSelector(state=>state.authorization_state.authentication);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    useEffect(()=>{
+        if(isAuthorization){
+            navigate("/user/account");
+        }else if(state.isRegistration){
+            navigate('/auth/confirm/email');
+            dispatch(initialStateReg());
+        }
+    }, [state.isRegistration]);
+
     let isReady = false;
     if( state.first_name!==''&&
         state.last_name!==''&&
@@ -26,12 +41,16 @@ function RegistrationComponent(){
 
     function sendHandler(e){
         e.preventDefault();
-        if(state.password.length<4){
-            toast.warning('Пороль слишком короткий! [4 - 12]');
-        }else if(state.password.length>12){
-            toast.warning('Пороль слишком длинный! [4 - 12]');
+        if(state.password.length<=8){
+            toast.warning('Пороль слишком короткий! (Больше восьми)');
         }else{
-            console.log("Ok")
+            dispatch(registrationUser({
+                name: state.name,
+                last_name: state.last_name,
+                anonymous_name: state.anonymous_name,
+                email: state.email,
+                password: state.password
+            }));
         }
     }
 
@@ -43,7 +62,7 @@ function RegistrationComponent(){
                 type={"text"}
                 description={"Ввод"}
                 inputHandler={nameInputHandler}
-                value={state.first_name}
+                value={state.name}
                 tp={'fn'}
                 action={regFirstNameAction}
             />
@@ -61,7 +80,7 @@ function RegistrationComponent(){
                 type={"text"}
                 description={"Ввод"}
                 inputHandler={nameInputHandler}
-                value={state.nick_name}
+                value={state.anonymous_name}
                 tp={'nn'}
                 action={regNickNameAction}
             />

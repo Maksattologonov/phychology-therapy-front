@@ -1,10 +1,17 @@
 import React from "react";
 import classes from "./FormCardComponent.module.scss";
+import {useNavigate} from "react-router-dom";
 
-function FormCardComponent(){
+function FormCardComponent(props){
+
+    const navigate = useNavigate();
+
+    function clickHandler(){
+        navigate(`/form/chat/${props.id}`);
+    }
 
     return(
-        <div className={classes.card_wrapper}>
+        <div className={classes.card_wrapper} onClick={clickHandler}>
             <h4>
                 Название темы обсуждения
             </h4>

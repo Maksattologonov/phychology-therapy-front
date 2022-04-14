@@ -1,12 +1,12 @@
 import {
     AUTH_AUTHENTICATION,
-    AUTH_AUTHORIZATION, AUTH_FORGET_PASS, AUTH_REGISTRATION, AUTH_RESET_PASS,
+    AUTH_AUTHORIZATION, AUTH_FORGET_PASS, AUTH_REGISTRATION, AUTH_RESET_PASS, CONFIRM_EMAIL,
     FORM, FORM_CHAT,
     FORMS_LIST,
     HOME,
     PSYCHOLOGIST, PSYCHOLOGIST_APPOINTMENT,
     PUBLICATIONS,
-    PUBLICATIONS_PUBLICATION,
+    PUBLICATIONS_PUBLICATION, USER_ACCOUNT,
     WORK_WITH_WEBSITE
 } from "../types/RouteTypes";
 
@@ -29,8 +29,13 @@ export const authRoutes = [
     {url: '/auth/authentication', type: AUTH_AUTHENTICATION, exact: true},
     {url: '/auth/forget-pass', type: AUTH_FORGET_PASS, exact: true},
     {url: '/auth/reset-pass', type: AUTH_RESET_PASS, exact: true},
+    {url: '/auth/confirm/email', type: CONFIRM_EMAIL, exact: true}
 ]
 
-export const privateRoutes=[
+export const userRoutes=[
+    {url: '/user/account', type: USER_ACCOUNT, exact: true},
+]
 
+export const adminRoutes=[
+    {url: '/adm/account', type: '', exact: true}
 ]

@@ -1,6 +1,6 @@
 .form_wrapper{
   width: 100%;
-  padding: 80px 100px;
+  padding: 50px 100px;
   display: flex;
   .left_block{
     width: 60%;
@@ -32,6 +32,8 @@
       padding: 20px 140px;
       font-size: 16px;
       .button_wrapper{
+        content: '';
+        display: block;
         margin: 50px 0;
         button{
           background-color: #70C174;

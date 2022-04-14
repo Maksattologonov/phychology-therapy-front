@@ -1,0 +1,76 @@
+.user_wrapper{
+  margin-top: 30px;
+  padding: 50px 150px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(29, 33, 48, 0.2);
+  .info_block{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+
+    .user_icon{
+      width: 30%;
+      padding: 50px;
+      border: 1px solid rgb(29, 33, 48, 0.5);
+      border-radius: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      height: 360px;
+      img{
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        object-fit: cover;
+        max-height: 250px;
+      }
+      form{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: end;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #1D2130;
+        input{
+          width: 100%;
+        }
+        button{
+          padding: 1px 5px;
+          background-color: #70C174;
+          margin-top: 10px;
+          border-radius: 3px;
+          color: #1D2130;
+          border: none;
+        }
+        .button_active {
+          background-color: rgb(29, 33, 48, 0.0);
+          cursor: not-allowed;
+        }
+      }
+    }
+    .info{
+      width: 67%;
+      padding: 0 20px;
+
+    }
+  }
+  .config_block{
+    width: 20%;
+    padding: 0 20px;
+    color: #1D2130;
+    .config{
+      width: 100%;
+      margin-bottom: 20px;
+      label{
+        margin-left: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+  .chatting_block{
+    width: 100%;
+    margin-top: 50px;
+  }
+}
