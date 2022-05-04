@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./PublicationsPageStyle.module.scss";
 import PublicationCardComponent from "./PublicationCard/PublicationCardComponent";
+import SpinnerComponent from "../../Spinner/SpinnerComponent";
 
 function PublicationsPageComponent(){
 
@@ -9,6 +10,8 @@ function PublicationsPageComponent(){
             <div className={classes.title_wrapper}>
                 Публикации
             </div>
+
+            <SpinnerComponent/>
 
             <PublicationCardComponent/>
             <PublicationCardComponent/>

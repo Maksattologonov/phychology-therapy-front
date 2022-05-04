@@ -11,6 +11,11 @@ function FormPageComponent(){
         navigate('/form/forms');
     }
 
+    const createNewFormHandler = (e)=>{
+        e.preventDefault();
+        navigate('/form/create-new-form');
+    }
+
     return(
         <div className={classes.form_wrapper}>
             <div className={classes.left_block}>
@@ -28,7 +33,10 @@ function FormPageComponent(){
                     Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
                     <span className={classes.button_wrapper}>
                         <button onClick={goFormsClickHandler}>
-                            Перейти в Форум
+                            Перейти в Форумы
+                        </button>
+                        <button onClick={createNewFormHandler}>
+                            Создать Форум
                         </button>
                     </span>
                 </p>

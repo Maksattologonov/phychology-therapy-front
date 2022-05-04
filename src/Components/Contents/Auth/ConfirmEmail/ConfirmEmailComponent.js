@@ -3,8 +3,13 @@ import classes from "./ConfirmEmailStyle.module.css";
 import Input from "../AuthFormComponents/Input";
 import Button from "../AuthFormComponents/Button";
 import {useDispatch, useSelector} from "react-redux";
-import {initialStateVerified, verifiedAccount, verifiedCodeInput} from "../../../../redux/actions/authActions";
+import {
+    initialStateVerified,
+    verifiedAccount,
+    verifiedCodeInput
+} from "../../../../redux/actions/authActions";
 import {useNavigate} from "react-router-dom";
+import {toast} from "react-toastify";
 
 function ConfirmEmailComponent(){
 
@@ -22,7 +27,11 @@ function ConfirmEmailComponent(){
 
     function sendHandler(e){
         e.preventDefault();
-        dispatch(verifiedAccount({email: state.email, code: state.code}));
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(state.email)){
+            dispatch(verifiedAccount({email: state.email, code: state.code}));
+        }else{
+            toast.warning('Email не правильный !');
+        }
     }
 
     function inputHandler(e){

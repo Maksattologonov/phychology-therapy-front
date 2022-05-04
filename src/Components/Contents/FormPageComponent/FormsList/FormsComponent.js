@@ -1,33 +1,65 @@
-import React from "react";
+import React, {useEffect} from "react";
 import classes from "./FormsStyle.module.scss";
 import FormCardComponent from "./FormCard/FormCardComponent";
 import {useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {loadFormsAction} from "../../../../redux/actions/formActions";
 
 function FormsComponent(){
 
     const navigate = useNavigate();
+    const state = useSelector(state=>state.form_state);
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+        if(state.forms.length===0){
+            dispatch(loadFormsAction({
+                count: state.pagination.count,
+                page: state.pagination.page
+            }));
+        }
+    }, [])
 
     const goBack = (e)=>{
         e.preventDefault();
         navigate(-1);
     }
 
+    const createForm = ()=>{
+        navigate('/form/create-new-form');
+    }
+
     return(
         <div className={classes.forms_wrapper}>
             <div className={classes.forms_title}>
-                <h2>
+                <span>
                     Ознакомьтесь с уже ранее созданными темами или предложите свою
-                </h2>
+                </span>
             </div>
             <div className={classes.forms}>
                 <button onClick={goBack}>
                     {"<- назад"}
                 </button>
-                <FormCardComponent id={5}/>
-                <FormCardComponent id={5}/>
-                <FormCardComponent id={5}/>
-                <FormCardComponent id={5}/>
-                <FormCardComponent id={5}/>
+
+                {
+                    state.forms.length===0?
+                        '':
+                        state.forms.map((item, index)=>{
+                            return(
+                                <FormCardComponent
+                                    title={item.title}
+                                    description={item.description.slice(0, 120)}
+                                    date={item.created_at.slice(0, 10)}
+                                    images={item.images}
+                                    id={item.id}
+                                    key={index}
+                                />
+                            )
+                        })
+                }
+                <button onClick={createForm}>
+                    {"Создать новый форум"}
+                </button>
             </div>
         </div>
     )

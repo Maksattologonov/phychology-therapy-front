@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {emailInputHandler} from "../AuthFormComponents/InputHandlers";
 import {userForgetPassword, verifiedEmailInput} from "../../../../redux/actions/authActions";
 import {useNavigate} from "react-router-dom";
+import {toast} from "react-toastify";
 
 
 function ForgetPassComponent(){
@@ -26,7 +27,11 @@ function ForgetPassComponent(){
 
     function sendHandler(e){
         e.preventDefault();
-        dispatch(userForgetPassword(state.email));
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(state.email)){
+            dispatch(userForgetPassword(state.email));
+        }else{
+            toast.warning('Email не правильный !');
+        }
     }
 
     return(

@@ -11,7 +11,7 @@ function MessageComponent(props){
     return(
         <div className={cls.join(' ')}>
             <div className={classes.user}>
-                <img src=" https://images.vexels.com/media/users/3/145908/raw/52eabf633ca6414e60a7677b0b917d92-male-avatar-maker.jpg" alt=""/>
+                {/*<img src="" alt=""/>*/}
                 <span className={classes.nick_name}>Nick name</span>
                 <span className={classes.author}><strong>Автор темы</strong></span>
             </div>

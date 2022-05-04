@@ -4,6 +4,7 @@ import {combineReducers} from "redux";
 import userReducer from "./userReducers/userReducer";
 import userAppointmentReducer from "./userReducers/userAppointmentReducer";
 import verified from "./authReducers/verified";
+import form from "./formReducers/form";
 
 
 const rootReducer = combineReducers({
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
     authorization_state: authorizationReducer,
     user_state: userReducer,
     appointment_state: userAppointmentReducer,
-    verified_state: verified
+    verified_state: verified,
+    form_state: form
 })
 
 export default rootReducer;

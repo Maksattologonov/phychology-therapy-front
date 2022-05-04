@@ -1,7 +1,7 @@
 import React from "react";
 import HomePageComponent from "../../Components/Contents/HomePageComponent/HomePageComponent";
 import {
-    FORM, FORM_CHAT, FORMS_LIST,
+    FORM, FORM_CHAT, FORM_CREATING, FORMS_LIST,
     HOME,
     PSYCHOLOGIST, PSYCHOLOGIST_APPOINTMENT,
     PUBLICATIONS,
@@ -24,6 +24,7 @@ import FormChatComponent from "../../Components/Contents/FormPageComponent/FormC
 import UserAccountPage from "../../Components/Contents/UserPageComponent/UserAccountPage";
 import {toast, ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CreateNewForm from "../../Components/Contents/FormPageComponent/CreateNewForm/CreateNewForm";
 
 
 class MainPageComponent extends React.Component{
@@ -56,6 +57,9 @@ class MainPageComponent extends React.Component{
                 break
             case FORM_CHAT:
                 this.content = <FormChatComponent/>;
+                break;
+            case FORM_CREATING:
+                this.content = <CreateNewForm/>
                 break;
             case WORK_WITH_WEBSITE:
                 this.content = <WorkWithWebsitePageComponent/>;

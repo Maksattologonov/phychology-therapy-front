@@ -23,7 +23,11 @@ function AuthorizationComponent(){
 
     function sendHandler(e){
         e.preventDefault();
-        dispatch(authorizationUser({username: state.email, password: state.password}));
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(state.email)){
+            dispatch(authorizationUser({username: state.email, password: state.password}));
+        }else{
+            toast.warning('Email не правильный !');
+        }
     }
 
     if(state.email.length!==0&&state.password.length!==0){

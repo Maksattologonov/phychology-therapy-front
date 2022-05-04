@@ -33,11 +33,12 @@
       font-size: 16px;
       .button_wrapper{
         content: '';
-        display: block;
+        display: flex;
+        justify-content: space-around;
         margin: 50px 0;
         button{
           background-color: #70C174;
-          padding: 15px 30px;
+          padding: 10px 18px;
           color: white;
           border-radius: 5px;
           cursor: pointer;

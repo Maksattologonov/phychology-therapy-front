@@ -4,6 +4,7 @@ import {publicRoutes, authRoutes, userRoutes} from "../routes/Routes";
 import { Route, Routes} from "react-router-dom";
 import AuthPageComponent from "../../Container/AuthContainer/AuthPageComponent";
 import {useSelector} from "react-redux";
+import ErrorPage from "../../Components/ErrorPage404/ErrorPage";
 
 export default function Routing(){
 
@@ -36,7 +37,7 @@ export default function Routing(){
                 })
             }
 
-            <Route  path="*" element={<>404</>}/>
+            <Route  path="*" element={<ErrorPage/>}/>
         </Routes>
     )
 

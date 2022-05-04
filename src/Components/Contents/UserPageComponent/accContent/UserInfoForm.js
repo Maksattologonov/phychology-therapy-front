@@ -1,18 +1,36 @@
 import React from "react";
 import classes from "./UserInfoFormStyle.module.scss";
 import Input from "../../Auth/AuthFormComponents/Input";
-import {emailInputHandler, nameInputHandler} from "../../Auth/AuthFormComponents/InputHandlers";
-import {useSelector} from "react-redux";
+import {nameInputHandler} from "../../Auth/AuthFormComponents/InputHandlers";
+import {useDispatch, useSelector} from "react-redux";
 import {
-    userAccInputEmail,
     userAccInputFirstName,
     userAccInputLastName,
-    userAccInputNickName
+    userAccInputNickName, userProfileUpdate
 } from "../../../../redux/actions/userActions";
 
-export default function UserInfoForm(props){
+export default function UserInfoForm(){
 
-    let state = useSelector(state=>state.user_state);
+    const state = useSelector(state=>state.user_state);
+    const token = useSelector(state=>state.authorization_state.token);
+    const dispatch = useDispatch();
+    let isReady = false;
+
+    if(state.first_name.length!==0&&state.last_name.length!==0&&state.nick_name.length!==0){
+        isReady=true
+    }
+
+    function sendHandler(e){
+        e.preventDefault();
+        dispatch(userProfileUpdate({
+            data: {
+                name: state.first_name,
+                last_name: state.last_name,
+                anonymous_name: state.nick_name
+            },
+            token: token
+        }))
+    }
 
     return(
         <form className={classes.form_list}>
@@ -43,15 +61,11 @@ export default function UserInfoForm(props){
                 tp={'nn'}
                 action={userAccInputNickName}
             />
-            <Input
-                text={"Email"}
-                type={"email"}
-                description={"Ввод"}
-                inputHandler={emailInputHandler}
-                value={state.email}
-                action={userAccInputEmail}
-            />
-            <button className={classes.button_active}>
+            <button
+                className={isReady?'':classes.button_active}
+                disabled={!isReady}
+                onClick={sendHandler}
+            >
                 Сохранить
             </button>
         </form>

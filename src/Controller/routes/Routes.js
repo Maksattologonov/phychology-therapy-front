@@ -1,7 +1,7 @@
 import {
     AUTH_AUTHENTICATION,
     AUTH_AUTHORIZATION, AUTH_FORGET_PASS, AUTH_REGISTRATION, AUTH_RESET_PASS, CONFIRM_EMAIL,
-    FORM, FORM_CHAT,
+    FORM, FORM_CHAT, FORM_CREATING,
     FORMS_LIST,
     HOME,
     PSYCHOLOGIST, PSYCHOLOGIST_APPOINTMENT,
@@ -20,6 +20,7 @@ export const publicRoutes = [
     {url: '/form', type: FORM, exact: true},
     {url: '/form/forms', type: FORMS_LIST, exact: true},
     {url: '/form/chat/:id', type: FORM_CHAT, exact: true},
+    {url: '/form/create-new-form', type: FORM_CREATING, exact: true},
     {url: '/work-with-website', type: WORK_WITH_WEBSITE, exact: true},
 ]
 

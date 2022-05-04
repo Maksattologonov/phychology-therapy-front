@@ -35,12 +35,16 @@ function ResetPassComponent(){
             toast.info("Пороль слишком короткий! Больше восьми");
         }else{
             if(state.reestablish.new_pass===state.reestablish.repeat_pass){
-                dispatch(userResetPassword({
-                    email: state.email,
-                    code: state.code,
-                    new_password: state.reestablish.new_pass,
-                    confirm_password: state.reestablish.repeat_pass
-                }));
+                if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(state.email)){
+                    dispatch(userResetPassword({
+                        email: state.email,
+                        code: state.code,
+                        new_password: state.reestablish.new_pass,
+                        confirm_password: state.reestablish.repeat_pass
+                    }));
+                }else{
+                    toast.warning('Email не правильный !');
+                }
             }else{
                 toast.info("Пароли несовпадают!");
             }

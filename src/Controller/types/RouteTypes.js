@@ -6,6 +6,7 @@ export const PUBLICATIONS_PUBLICATION = 'PUBLICATIONS_PUBLICATION';
 export const FORM = 'FORM';
 export const FORMS_LIST = 'FORMS_LIST';
 export const FORM_CHAT = 'FORM_CHAT';
+export const FORM_CREATING = 'FORM_CREATING';
 export const WORK_WITH_WEBSITE='WORK_WITH_WEBSITE';
 
 // Auth

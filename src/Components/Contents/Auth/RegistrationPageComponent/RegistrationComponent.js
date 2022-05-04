@@ -10,7 +10,7 @@ import {
     regFirstNameAction, registrationUser,
     regLastNameAction,
     regNickNameAction,
-    regPasswordAction
+    regPasswordAction,
 } from "../../../../redux/actions/authActions";
 import {toast} from "react-toastify";
 import {useNavigate} from "react-router-dom";
@@ -44,13 +44,17 @@ function RegistrationComponent(){
         if(state.password.length<=8){
             toast.warning('Пороль слишком короткий! (Больше восьми)');
         }else{
-            dispatch(registrationUser({
-                name: state.name,
-                last_name: state.last_name,
-                anonymous_name: state.anonymous_name,
-                email: state.email,
-                password: state.password
-            }));
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(state.email)){
+                dispatch(registrationUser({
+                    name: state.name,
+                    last_name: state.last_name,
+                    anonymous_name: state.anonymous_name,
+                    email: state.email,
+                    password: state.password
+                }));
+            }else{
+                toast.warning('Email не правильный !');
+            }
         }
     }
 
