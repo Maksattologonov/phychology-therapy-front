@@ -9,7 +9,7 @@ function FormCardComponent(props){
     const navigate = useNavigate();
 
     function clickHandler(){
-        navigate(`/form/chat/${props.id}`);
+        navigate(`/form/chat/${props.id}/${props.index}`);
     }
 
     return(

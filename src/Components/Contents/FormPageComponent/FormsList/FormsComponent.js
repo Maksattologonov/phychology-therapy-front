@@ -3,7 +3,8 @@ import classes from "./FormsStyle.module.scss";
 import FormCardComponent from "./FormCard/FormCardComponent";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {loadFormsAction} from "../../../../redux/actions/formActions";
+import {forumCommentsReset, loadFormsAction} from "../../../../redux/actions/formActions";
+import SpinnerComponent from "../../../Spinner/SpinnerComponent";
 
 function FormsComponent(){
 
@@ -12,6 +13,7 @@ function FormsComponent(){
     const dispatch = useDispatch();
 
     useEffect(()=>{
+        dispatch(forumCommentsReset());
         if(state.forms.length===0){
             dispatch(loadFormsAction({
                 count: state.pagination.count,
@@ -43,7 +45,7 @@ function FormsComponent(){
 
                 {
                     state.forms.length===0?
-                        '':
+                        <SpinnerComponent/>:
                         state.forms.map((item, index)=>{
                             return(
                                 <FormCardComponent
@@ -52,6 +54,7 @@ function FormsComponent(){
                                     date={item.created_at.slice(0, 10)}
                                     images={item.images}
                                     id={item.id}
+                                    index={index}
                                     key={index}
                                 />
                             )

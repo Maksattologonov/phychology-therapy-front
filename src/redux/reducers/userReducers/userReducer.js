@@ -1,5 +1,5 @@
 import {
-    SET_USER_FORUMS,
+    SET_USER_FORUMS, SET_USER_ID,
     USER_ACC_INPUT_EMAIL,
     USER_ACC_INPUT_FIRST_NAME,
     USER_ACC_INPUT_LAST_NAME,
@@ -7,6 +7,7 @@ import {
 } from "../../types/userTypes";
 
 const initial_state = {
+    id: '',
     first_name: '',
     last_name: '',
     nick_name: '',
@@ -25,6 +26,8 @@ const initial_state = {
 export default function userReducer(state=initial_state, action){
 
     switch (action.type){
+        case SET_USER_ID:
+            return {...state, id: action.payload};
         case USER_ACC_INPUT_FIRST_NAME:
             return {...state, first_name: action.payload};
         case USER_ACC_INPUT_LAST_NAME:

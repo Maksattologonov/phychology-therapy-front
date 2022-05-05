@@ -1,8 +1,12 @@
 import {
-    ADD_NEW_FORM_SUCCESS, GET_FORM_BY_ID_SUCCESS,
-     LOAD_FORM_SUCCESS,
-    NEW_FORM_DESCRIPTION_INPUT, NEW_FORM_IMAGE_INPUT,
-    NEW_FORM_TITLE_INPUT
+    ADD_NEW_FORM_SUCCESS,
+    FORUM_COMMENT_OP_SUCCESS,
+    FORUM_COMMENTS_RESET,
+    GET_FORM_BY_ID_SUCCESS,
+    LOAD_FORM_SUCCESS,
+    NEW_FORM_DESCRIPTION_INPUT,
+    NEW_FORM_IMAGE_INPUT,
+    NEW_FORM_TITLE_INPUT,
 } from "../../types/formTypes";
 
 const initial_state = {
@@ -17,17 +21,15 @@ const initial_state = {
         title: '',
         description: '',
         image: ''
-    }
+    },
+    operation_success: false,
 }
 
 function form(state= initial_state, action){
 
     switch (action.type){
         case LOAD_FORM_SUCCESS:
-            return {
-                ...state,
-                forms: [...action.payload]
-            };
+            return {...state, forms: [...action.payload], operation_success: false};
         case NEW_FORM_TITLE_INPUT:
             return {...state, new_form_data: {...state.new_form_data, title: action.payload}};
         case NEW_FORM_DESCRIPTION_INPUT:
@@ -35,9 +37,13 @@ function form(state= initial_state, action){
         case NEW_FORM_IMAGE_INPUT:
             return {...state, new_form_data: {...state.new_form_data, image: action.payload}};
         case ADD_NEW_FORM_SUCCESS:
-            return {...initial_state}
+            return {...state, operation_success: true}
         case GET_FORM_BY_ID_SUCCESS:
-            return {...state, forum_comments: action.payload};
+            return {...state, forum_comments: action.payload, operation_success: false};
+        case FORUM_COMMENTS_RESET:
+            return {...state, forum_comments: []};
+        case FORUM_COMMENT_OP_SUCCESS:
+            return {...state, operation_success: true}
         default:
             return state;
     }

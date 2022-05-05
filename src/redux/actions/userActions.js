@@ -3,7 +3,7 @@ import {
     APPOINTMENT_INPUT_PHONE_NUMBER,
     APPOINTMENT_INPUT_PROBLEM,
     APPOINTMENT_INPUT_SESSION_TYPE, DELETE_USER_FORUM,
-    GET_USER_INFO, LOAD_USER_FORUMS, SET_USER_FORUMS, UPDATE_USER_FORUM,
+    GET_USER_INFO, LOAD_USER_FORUMS, SET_USER_FORUMS, SET_USER_ID, UPDATE_USER_FORUM,
     USER_ACC_INPUT_EMAIL,
     USER_ACC_INPUT_FIRST_NAME,
     USER_ACC_INPUT_LAST_NAME,
@@ -11,6 +11,12 @@ import {
 } from "../types/userTypes";
 
 // User account
+export function setUserId(payload){
+    return{
+        type: SET_USER_ID,
+        payload: payload
+    }
+}
 export function userAccInputFirstName(payload){
     return{
         type: USER_ACC_INPUT_FIRST_NAME,

@@ -10,7 +10,7 @@ import userInfo from "./apiRequests/user/userInfo";
 import updateUserData from "./apiRequests/user/updateUserData";
 
 import {
-    getUserInfo, setUserForums,
+    getUserInfo, setUserForums, setUserId,
     userAccInputEmail,
     userAccInputFirstName,
     userAccInputLastName,
@@ -23,6 +23,7 @@ import updateUserForumFunc from "./apiRequests/user/updateUserForumFunc";
 
 function* getUserDataWorker(action){
     let response = yield call(userInfo, action.payload);
+    yield put(setUserId(response.data.id));
     yield put(userAccInputFirstName(response.data.name));
     yield put(userAccInputLastName(response.data.last_name));
     yield put(userAccInputNickName(response.data.anonymous_name));
@@ -34,7 +35,7 @@ function* updateUserDataWorker(action){
     if(response.error){
         toast.error(response.message);
     }else{
-        toast.info("Данный успесшно обновлены !");
+        toast.info("Данные успесшно обновлены !");
         yield put(getUserInfo(action.payload.token));
     }
 }
@@ -54,7 +55,7 @@ function* deleteUserForumsWorker(action){
     if(response.error){
         toast.error(response.message);
     }else{
-        toast.info('Форум успешно удалено!');
+        toast.info('Форум успешно удален!');
         yield put(userProcessSuccess());
     }
 }

@@ -27,6 +27,7 @@ function MyForums(){
 
     function confirmHandler(id, title, des){
         if(forum.type==='delete'){
+            toast.info('Запрос отправлен, ждите!');
             dispatch(deleteUserForum({
                 token: token,
                 id: id
@@ -75,7 +76,7 @@ function MyForums(){
                                                         return{
                                                             ...prevState,
                                                             id: index,
-                                                            message: 'Вы действительно хотите изменить этот ФОРУМ ?',
+                                                            message: 'Вы действительно хотите ИЗМЕНИТЬ этот форум ?',
                                                             type: 'update'
                                                         }
                                                     })
@@ -87,7 +88,7 @@ function MyForums(){
                                                     return{
                                                         ...prevState,
                                                         id: index,
-                                                        message: 'Вы действительно хотите удалить этот ФОРУМ ?',
+                                                        message: 'Вы действительно хотите УДАЛИТЬ этот форум ?',
                                                         type: 'delete'
                                                     }
                                                 })
@@ -160,6 +161,7 @@ function MyForums(){
                                     if(updateForum.title.length===0||updateForum.description.length===0){
                                         toast.warning('Заполните текстовые поля !')
                                     }else{
+                                        toast.info('Запрос отправлен, ждите!');
                                         dispatch(updateUserForum({
                                             ...updateForum,
                                             token: token

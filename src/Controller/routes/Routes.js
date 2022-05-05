@@ -19,7 +19,7 @@ export const publicRoutes = [
     {url: '/publications/publication/:id', type: PUBLICATIONS_PUBLICATION, exact: true},
     {url: '/form', type: FORM, exact: true},
     {url: '/form/forms', type: FORMS_LIST, exact: true},
-    {url: '/form/chat/:id', type: FORM_CHAT, exact: true},
+    {url: '/form/chat/:id/:index', type: FORM_CHAT, exact: true},
     {url: '/form/create-new-form', type: FORM_CREATING, exact: true},
     {url: '/work-with-website', type: WORK_WITH_WEBSITE, exact: true},
 ]
