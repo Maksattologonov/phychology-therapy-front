@@ -10,7 +10,7 @@ function UserMenuLink(props){
     }
 
     return(
-        <div className={cls.join(' ')} to={'/'} onClick={()=>{props.clickHandler(props.id)}}>
+        <div className={cls.join(' ')} onClick={()=>{props.clickHandler(props.id)}}>
             <div className={classes.left}>
                 {props.icon}
             </div>

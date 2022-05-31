@@ -75,7 +75,7 @@ function AuthPageComponent(props){
             </div>
 
             <ToastContainer
-                autoClose={15000}
+                autoClose={8000}
             />
 
         </div>

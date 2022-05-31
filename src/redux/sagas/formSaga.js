@@ -8,10 +8,10 @@ import {
 } from "../types/formTypes";
 import loadForms from "./apiRequests/form/loadForms";
 import {
-    addNewFormSuccess, forumCommentOpSuccess,
+    addNewFormSuccess, forumCommentOpSuccess, forumSpinnerEnd, forumSpinnerStart,
     getFormByIdSuccess,
     loadFormsSuccess,
-} from "../actions/formActions";
+} from "../actions/forumActions";
 import {toast} from "react-toastify";
 import addForm from "./apiRequests/form/addForm";
 import getForumComments from "./apiRequests/form/getForumComments";
@@ -29,19 +29,25 @@ function* formAddWorker(action){
     }
 }
 function* formsLoadWorker(action){
+    yield put(forumSpinnerStart());
     let response = yield call(loadForms, action.payload);
     if(response.error){
+        yield put(forumSpinnerEnd());
         toast.error(response.message);
     }else{
         yield put(loadFormsSuccess(response.data));
+        yield put(forumSpinnerEnd());
     }
 }
 function* getForumByIdWorker(action){
+    yield put(forumSpinnerStart());
     let response = yield call(getForumComments, action.payload);
     if(response.error){
         toast.error(response.message);
+        yield put(forumSpinnerEnd());
     }else{
         yield put(getFormByIdSuccess(response.data));
+        yield put(forumSpinnerEnd());
     }
 }
 function* addNewForumCommentWorker(action){

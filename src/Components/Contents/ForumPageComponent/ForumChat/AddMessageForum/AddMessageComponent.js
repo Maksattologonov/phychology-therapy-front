@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import classes from "./AddMessageStyle.module.scss";
 import {useDispatch, useSelector} from "react-redux";
-import {addNewForumComment,} from "../../../../../redux/actions/formActions";
+import {addNewForumComment,} from "../../../../../redux/actions/forumActions";
 import {toast} from "react-toastify";
 
 function AddMessageComponent(props){

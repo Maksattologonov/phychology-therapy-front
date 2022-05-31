@@ -1,8 +1,8 @@
 import React from "react"
-import classes from "./FormPageStyle.module.scss";
+import classes from "./ForumPageStyle.module.scss";
 import {useNavigate} from "react-router-dom";
 
-function FormPageComponent(){
+function ForumPageComponent(){
 
     const navigate = useNavigate();
 
@@ -48,4 +48,4 @@ function FormPageComponent(){
     )
 }
 
-export default FormPageComponent;
+export default ForumPageComponent;

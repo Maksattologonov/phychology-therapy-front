@@ -2,12 +2,22 @@ import {
     APPOINTMENT_INPUT_NAME,
     APPOINTMENT_INPUT_PHONE_NUMBER,
     APPOINTMENT_INPUT_PROBLEM,
-    APPOINTMENT_INPUT_SESSION_TYPE, DELETE_USER_FORUM,
-    GET_USER_INFO, LOAD_USER_FORUMS, SET_USER_FORUMS, SET_USER_ID, UPDATE_USER_FORUM,
+    APPOINTMENT_INPUT_SESSION_TYPE,
+    DELETE_USER_FORUM,
+    GET_USER_INFO,
+    LOAD_USER_FORUMS,
+    SET_USER_FORUMS,
+    SET_USER_ID,
+    UPDATE_USER_FORUM,
     USER_ACC_INPUT_EMAIL,
     USER_ACC_INPUT_FIRST_NAME,
     USER_ACC_INPUT_LAST_NAME,
-    USER_ACC_INPUT_NICK_NAME, USER_LOG_OUT, USER_PROCESS_SUCCESS, USER_PROFILE_UPDATE,
+    USER_ACC_INPUT_NICK_NAME,
+    USER_LOG_OUT,
+    USER_PROCESS_SUCCESS,
+    USER_PROFILE_UPDATE,
+    USER_SPINNER_END,
+    USER_SPINNER_START,
 } from "../types/userTypes";
 
 // User account
@@ -87,6 +97,17 @@ export function deleteUserForum(payload){
 export function userProcessSuccess(){
     return{
         type: USER_PROCESS_SUCCESS,
+    }
+}
+
+export function userSpinnerStart(){
+    return{
+        type: USER_SPINNER_START
+    }
+}
+export function userSpinnerEnd(){
+    return{
+        type: USER_SPINNER_END
     }
 }
 

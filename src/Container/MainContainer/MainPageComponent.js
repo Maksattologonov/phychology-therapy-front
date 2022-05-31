@@ -14,17 +14,17 @@ import FooterComponent from "../../Components/Footer/FooterComponent";
 import PublicationsPageComponent from "../../Components/Contents/PublicationsPageComponent/PublicationsPageComponent";
 import PublicationMoreInfoComponent
     from "../../Components/Contents/PublicationsPageComponent/PublicationMoreInfo/PublicationMoreInfoComponent";
-import FormPageComponent from "../../Components/Contents/FormPageComponent/FormPageComponent";
-import FormsComponent from "../../Components/Contents/FormPageComponent/FormsList/FormsComponent";
+import ForumPageComponent from "../../Components/Contents/ForumPageComponent/ForumPageComponent";
+import FormsComponent from "../../Components/Contents/ForumPageComponent/ForumsList/FormsComponent";
 import PsychologistPageComponent from "../../Components/Contents/PsychologistPageComponent/PsychologistPageComponent";
 import WorkWithWebsitePageComponent
     from "../../Components/Contents/WorkWithWebsitePageComponent/WorkWithWebsitePageComponent";
 import AppointmentComponent from "../../Components/Contents/PsychologistPageComponent/Appointment/AppointmentComponent";
-import FormChatComponent from "../../Components/Contents/FormPageComponent/FormChat/FormChatComponent";
+import FormChatComponent from "../../Components/Contents/ForumPageComponent/ForumChat/FormChatComponent";
 import UserAccountPage from "../../Components/Contents/UserPageComponent/UserAccountPage";
 import {toast, ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import CreateNewForm from "../../Components/Contents/FormPageComponent/CreateNewForm/CreateNewForm";
+import CreateNewForm from "../../Components/Contents/ForumPageComponent/CreateNewForum/CreateNewForm";
 
 
 class MainPageComponent extends React.Component{
@@ -50,7 +50,7 @@ class MainPageComponent extends React.Component{
                 this.content = <PublicationsPageComponent/>
                 break;
             case FORM:
-                this.content = <FormPageComponent/>;
+                this.content = <ForumPageComponent/>;
                 break;
             case FORMS_LIST:
                 this.content = <FormsComponent/>;

@@ -1,34 +1,43 @@
 import React, {useRef} from "react";
 import classes from "./PublicationCardStyle.module.scss";
 import {useNavigate} from "react-router-dom";
+import {getImageUrl} from "../../../../config/fileConfig";
+import cardDefImage from "../../../../images/publication_card_defoalt_image.png";
 
-function PublicationCardComponent(){
+function PublicationCardComponent(props){
 
     const navigate = useNavigate();
 
     const publicationClickHandler = (e)=>{
         e.preventDefault();
-        navigate('/publications/publication/1');
+        navigate(`/publications/publication/${props.id}`);
     }
 
+    if(Object.keys(props.data).length!==0){
+       return(
+           <div className={classes.card_wrapper}>
 
-    return(
-        <div className={classes.card_wrapper}>
-
-            <img src="https://nystudio107-ems2qegf7x6qiqq.netdna-ssl.com/img/blog/_1200x675_crop_center-center_82_line/image_optimzation.jpg" alt=""/>
-            <div className={classes.card_text}>
-                <h3>
-                    Название статьи
-                </h3>
-                <span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.
+               <img src={props.data.image===""?cardDefImage:getImageUrl(props.data.image)} alt=""/>
+               <div className={classes.card_text}>
+                   <h3>
+                       {props.data.title}
+                   </h3>
+                   <span>
+                    {props.data.description.length>50?
+                        props.data.description.slice(0, 50)+'...'
+                        :
+                        props.data.description
+                    }
                 </span>
-                <button onClick={publicationClickHandler}>
-                    Просмотреть
-                </button>
-            </div>
-        </div>
-    )
+                   <button onClick={publicationClickHandler}>
+                       Просмотреть
+                   </button>
+               </div>
+           </div>
+       )
+    }else{
+        navigate('/publications');
+    }
 }
 
 export default PublicationCardComponent;

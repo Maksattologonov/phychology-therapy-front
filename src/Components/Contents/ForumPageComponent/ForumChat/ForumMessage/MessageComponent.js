@@ -4,7 +4,7 @@ import user_icon from '../../../../../images/forum_chat_def_user_icon.jpg'
 import {TiDeleteOutline} from "react-icons/ti";
 import {AiOutlineEdit} from "react-icons/ai";
 import {useDispatch, useSelector} from "react-redux";
-import {deleteForumComment, updateForumComment} from "../../../../../redux/actions/formActions";
+import {deleteForumComment, updateForumComment} from "../../../../../redux/actions/forumActions";
 import {toast} from "react-toastify";
 
 function MessageComponent(props){

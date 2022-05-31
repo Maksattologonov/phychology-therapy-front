@@ -2,7 +2,7 @@ import {
     ADD_NEW_FORM,
     ADD_NEW_FORM_SUCCESS,
     ADD_NEW_FORUM_COMMENT, DELETE_FORUM_COMMENT, FORUM_COMMENT_OP_SUCCESS,
-    FORUM_COMMENTS_RESET,
+    FORUM_COMMENTS_RESET, FORUM_SPINNER_END, FORUM_SPINNER_START,
     GET_FORM_BY_ID_SUCCESS,
     GET_FROM_BY_ID,
     LOAD_FORM_SUCCESS,
@@ -97,5 +97,16 @@ export function deleteForumComment(payload){
 export function forumCommentOpSuccess(){
     return{
         type: FORUM_COMMENT_OP_SUCCESS
+    }
+}
+
+export function forumSpinnerStart(){
+    return{
+        type: FORUM_SPINNER_START
+    }
+}
+export function forumSpinnerEnd(){
+    return{
+        type: FORUM_SPINNER_END
     }
 }

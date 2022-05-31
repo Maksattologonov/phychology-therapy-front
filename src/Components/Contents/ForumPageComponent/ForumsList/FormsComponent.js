@@ -1,9 +1,9 @@
 import React, {useEffect} from "react";
 import classes from "./FormsStyle.module.scss";
-import FormCardComponent from "./FormCard/FormCardComponent";
+import FormCardComponent from "./ForumCard/FormCardComponent";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {forumCommentsReset, loadFormsAction} from "../../../../redux/actions/formActions";
+import {forumCommentsReset, loadFormsAction} from "../../../../redux/actions/forumActions";
 import SpinnerComponent from "../../../Spinner/SpinnerComponent";
 
 function FormsComponent(){
@@ -14,13 +14,13 @@ function FormsComponent(){
 
     useEffect(()=>{
         dispatch(forumCommentsReset());
-        if(state.forms.length===0){
+        if(state.forms.length===0||state.operation_success){
             dispatch(loadFormsAction({
                 count: state.pagination.count,
                 page: state.pagination.page
             }));
         }
-    }, [])
+    }, [state.operation_success])
 
     const goBack = (e)=>{
         e.preventDefault();
@@ -44,21 +44,25 @@ function FormsComponent(){
                 </button>
 
                 {
-                    state.forms.length===0?
+                    state.spinner?
                         <SpinnerComponent/>:
-                        state.forms.map((item, index)=>{
-                            return(
-                                <FormCardComponent
-                                    title={item.title}
-                                    description={item.description.slice(0, 120)}
-                                    date={item.created_at.slice(0, 10)}
-                                    images={item.images}
-                                    id={item.id}
-                                    index={index}
-                                    key={index}
-                                />
-                            )
-                        })
+                        state.forms.length===0?
+                            <div style={{width: '100%', margin: "20px 0", textAlign: "center"}}>
+                                Пока форумов нету
+                            </div>:
+                            state.forms.map((item, index)=>{
+                                return(
+                                    <FormCardComponent
+                                        title={item.title}
+                                        description={item.description.slice(0, 120)}
+                                        date={item.created_at.slice(0, 10)}
+                                        images={item.images}
+                                        id={item.id}
+                                        index={index}
+                                        key={index}
+                                    />
+                                )
+                            })
                 }
                 <button onClick={createForm}>
                     {"Создать новый форум"}

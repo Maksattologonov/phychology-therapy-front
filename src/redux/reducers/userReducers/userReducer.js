@@ -20,7 +20,8 @@ const initial_state = {
             count: 20
         },
         success: false
-    }
+    },
+    spinner: false
 }
 
 export default function userReducer(state=initial_state, action){

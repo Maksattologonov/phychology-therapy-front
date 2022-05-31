@@ -2,8 +2,8 @@
   width: 100%;
   padding: 50px 0;
   display: flex;
-  align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   .form{
     width: 550px;
     padding: 50px 30px;
@@ -41,6 +41,15 @@
       border-radius: 5px;
       font-size: 15px;
       float: right;
+    }
+  }
+  .span{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+    a{
+      color: #462d86;
     }
   }
 }

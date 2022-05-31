@@ -6,8 +6,8 @@ import {
     newFormDescriptionInput,
     newFormImageInput,
     newFormTitleInput
-} from "../../../../redux/actions/formActions";
-import {useNavigate} from "react-router-dom";
+} from "../../../../redux/actions/forumActions";
+import {NavLink, useNavigate} from "react-router-dom";
 
 function CreateNewForm(){
 
@@ -90,6 +90,11 @@ function CreateNewForm(){
                     Отправить
                 </button>
             </form>
+            <span className={classes.span}>
+                <NavLink to={'/form/forms'}>
+                    Перейти на страницу с форумами
+                </NavLink>
+            </span>
         </div>
     )
 }
