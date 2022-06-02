@@ -1,20 +1,33 @@
-import React from "react";
+import React, {useEffect} from "react";
 import classes from './AuthorizationStyle.module.scss';
 import Input from "../AuthFormComponents/Input";
 import Button from "../AuthFormComponents/Button";
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import {emailInputHandler, passwordInputHandler} from "../AuthFormComponents/InputHandlers";
-import {useSelector} from "react-redux";
-import {authInputEmail, authInputPassword} from "../../../../redux/actions/authActions";
+import {useDispatch, useSelector} from "react-redux";
+import {authInputEmail, authInputPassword, authorizationUser} from "../../../../redux/actions/authActions";
+import {toast} from "react-toastify";
 
 function AuthorizationComponent(){
 
-    let state = useSelector(state=>state.authorization_state);
+    const state = useSelector(state=>state.authorization_state);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     let isReady = false;
+
+    useEffect(()=>{
+        if(state.authentication){
+            navigate("/user/account");
+        }
+    }, [state.authentication]);
 
     function sendHandler(e){
         e.preventDefault();
-        console.log("Ok");
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(state.email)){
+            dispatch(authorizationUser({username: state.email, password: state.password}));
+        }else{
+            toast.warning('Email не правильный !');
+        }
     }
 
     if(state.email.length!==0&&state.password.length!==0){

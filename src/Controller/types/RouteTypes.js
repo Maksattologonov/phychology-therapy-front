@@ -6,6 +6,7 @@ export const PUBLICATIONS_PUBLICATION = 'PUBLICATIONS_PUBLICATION';
 export const FORM = 'FORM';
 export const FORMS_LIST = 'FORMS_LIST';
 export const FORM_CHAT = 'FORM_CHAT';
+export const FORM_CREATING = 'FORM_CREATING';
 export const WORK_WITH_WEBSITE='WORK_WITH_WEBSITE';
 
 // Auth
@@ -14,4 +15,10 @@ export const AUTH_REGISTRATION = "AUTH_REGISTRATION";
 export const AUTH_AUTHENTICATION = "AUTH_AUTHENTICATION";
 export const AUTH_FORGET_PASS = "AUTH_FORGET_PASS";
 export const AUTH_RESET_PASS = "AUTH_RESET_PASS";
+export const CONFIRM_EMAIL = "CONFIRM_EMAIL"
 
+// User
+export const USER_ACCOUNT = "USER_ACCOUNT";
+
+//Admin
+export const ADMIN_ACCOUNT = "ADMIN_ACCOUNT";

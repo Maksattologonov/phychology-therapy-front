@@ -1,23 +1,37 @@
-import React from "react";
+import React, {useEffect} from "react";
 import classes from './ForgetPassStyle.module.scss';
 import Input from "../AuthFormComponents/Input";
 import Button from "../AuthFormComponents/Button";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {emailInputHandler} from "../AuthFormComponents/InputHandlers";
-import {forgetInputEmail} from "../../../../redux/actions/authActions";
+import {userForgetPassword, verifiedEmailInput} from "../../../../redux/actions/authActions";
+import {useNavigate} from "react-router-dom";
+import {toast} from "react-toastify";
 
 
 function ForgetPassComponent(){
-    const state = useSelector(state=>state.reestablish_state);
+    const state = useSelector(state=>state.verified_state);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     let isReady = false;
 
-    if(state.forget_pass.email.length!==0){
+    useEffect(()=>{
+        if(state.reestablish.isSendEmail){
+            navigate('/auth/reset-pass');
+        }
+    }, [state.reestablish.isSendEmail])
+
+    if(state.email.length!==0){
         isReady = true;
     }
 
     function sendHandler(e){
         e.preventDefault();
-        console.log("Ok");
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(state.email)){
+            dispatch(userForgetPassword(state.email));
+        }else{
+            toast.warning('Email не правильный !');
+        }
     }
 
     return(
@@ -27,8 +41,8 @@ function ForgetPassComponent(){
                 type={"email"}
                 description={"Ввод"}
                 inputHandler={emailInputHandler}
-                value={state.forget_pass.email}
-                action={forgetInputEmail}
+                value={state.email}
+                action={verifiedEmailInput}
             />
 
             <Button

@@ -1,7 +1,34 @@
 import React from "react";
 import classes from "./PsychologistPageStyle.module.scss";
+import {BsTelegram} from "react-icons/bs";
+import {AiOutlineMail, AiOutlineWhatsApp} from "react-icons/ai";
+import {BsInstagram} from "react-icons/bs";
+import {useNavigate} from "react-router-dom";
+
 
 function PsychologistPageComponent(){
+
+    const navigate = useNavigate();
+
+    function socialButHandler(e, t){
+        e.preventDefault();
+        switch (t){
+            case 't':
+                navigate('/');
+                break;
+            case 'w':
+                navigate('/');
+                break;
+            case 'i':
+                navigate('/');
+                break;
+            case 'e':
+                navigate('/');
+                break;
+            default:
+                break;
+        }
+    }
 
     return(
         <div className={classes.psychologist_wrapper}>
@@ -12,11 +39,10 @@ function PsychologistPageComponent(){
                     <span> <h2>Doctor's name</h2> </span>
                     <span> Психолог практик </span>
                     <span> <p>Phone number 1</p> </span>
-                    <span> <p>Phone number 2</p> </span>
-                    <span> <p>Whats app</p> </span>
-                    <span> <p>Telegram</p> </span>
-                    <span> <p>Instagram</p> </span>
-                    <span> <p>Email</p> </span>
+                    <span className={classes.social_but} onClick={(e)=>socialButHandler(e, 'w')}> <AiOutlineWhatsApp/><p>Whats app</p> </span>
+                    <span className={classes.social_but} onClick={(e)=>socialButHandler(e, 't')}> <BsTelegram/> <p>Telegram</p> </span>
+                    <span className={classes.social_but} onClick={(e)=>socialButHandler(e, 'i')}> <BsInstagram/><p>Instagram</p> </span>
+                    <span className={classes.social_but} onClick={(e)=>socialButHandler(e, 'e')}> <AiOutlineMail/><p>Email</p> </span>
                 </div>
             </div>
             <div className={classes.block_2+" "+classes.blocks}>

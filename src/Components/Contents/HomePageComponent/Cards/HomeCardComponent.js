@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./HomeCardStyle.module.scss";
+import {NavLink} from "react-router-dom";
 
 function HomeCardComponent(props){
 
@@ -14,6 +15,9 @@ function HomeCardComponent(props){
                 <div className={classes.title}>
                     {props.title}
                 </div>
+                <NavLink to={props.but_url}>
+                    <button>Перейти</button>
+                </NavLink>
             </div>
             <div className={classes.right_block}>
                 <img src={props.image} alt=""/>
