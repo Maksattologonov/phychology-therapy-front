@@ -58,7 +58,7 @@ function AuthPageComponent(props){
     return(
         <div className={classes.auth_main_wrapper} style={bg_style}>
 
-            <div className="container">
+            <div>
                 <div className={classes.frame}>
                     <div className={classes.form_title}>{form_title}</div>
                     <div className={classes.nav}>

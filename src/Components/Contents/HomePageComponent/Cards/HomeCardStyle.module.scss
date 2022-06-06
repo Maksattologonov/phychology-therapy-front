@@ -10,12 +10,12 @@
       span{
         display: flex;
         align-items: center;
-        font-size: 16px;
+        font-size: 18px;
       }
       span:before{
         content: '';
         display: block;
-        width: 60px;
+        width: 40px;
         height: 3px;
         background-color: #1D2130;
         margin-right: 10px;
@@ -24,18 +24,8 @@
     }
     .title{
       width: 100%;
-      font-size: 40px;
-      padding: 30px 70px;
-    }
-    button{
-      margin: 20px 70px;
-      padding: 15px 45px;
-      cursor: pointer;
-      background-color: #036D57;
-      border-radius: 5px;
-      border: none;
-      font-size: 18px;
-      color: white;
+      font-size: 35px;
+      margin: 30px 0 50px 0;
     }
   }
 

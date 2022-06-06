@@ -3,7 +3,7 @@ import React from "react";
 export default function LogOut(props){
 
     let style = {
-        margin: '100px 33%',
+        margin: '10px 5%',
         padding: "8px 20px",
         backgroundColor: '#DA3928',
         cursor: 'pointer',

@@ -1,18 +1,15 @@
 import React from "react";
 import classes from "./HomePageStyle.module.scss";
-import main_image from "../../../images/home_page_main_image.png";
 import HomeCardComponent from "./Cards/HomeCardComponent";
+import HomeSlider from "./Slider/HomeSlider";
 
 
 const HomePageComponent = (props)=>{
 
     return(
         <div className={classes.home_content_wrapper}>
-            <div className={classes.image_wrapper}>
-                <img src={main_image} alt=""/>
-                <div className={classes.image_text_wrapper}>
-                    Оказание психологической поддержки и помощи студентам университета “Манас”
-                </div>
+            <div className={classes.slider_wrapper}>
+                <HomeSlider/>
             </div>
 
             <HomeCardComponent

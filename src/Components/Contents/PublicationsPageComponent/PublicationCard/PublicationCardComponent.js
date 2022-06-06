@@ -1,17 +1,10 @@
 import React, {useRef} from "react";
 import classes from "./PublicationCardStyle.module.scss";
-import {useNavigate} from "react-router-dom";
 import {getImageUrl} from "../../../../config/fileConfig";
 import cardDefImage from "../../../../images/publication_card_defoalt_image.png";
+import MoreButton from "../../../Common/MoreButton/MoreButton";
 
 function PublicationCardComponent(props){
-
-    const navigate = useNavigate();
-
-    const publicationClickHandler = (e)=>{
-        e.preventDefault();
-        navigate(`/publications/publication/${props.id}`);
-    }
 
     if(Object.keys(props.data).length!==0){
        return(
@@ -29,9 +22,9 @@ function PublicationCardComponent(props){
                         props.data.description
                     }
                 </span>
-                   <button onClick={publicationClickHandler}>
+                   <MoreButton link={`/publications/publication/${props.id}`}>
                        Просмотреть
-                   </button>
+                   </MoreButton>
                </div>
            </div>
        )

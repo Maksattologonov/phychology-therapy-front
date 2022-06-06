@@ -10,9 +10,9 @@
     font-weight: bold;
     font-size: 22px;
     a{
-      color: #883210;
+      color: #B80924;
       span{
-        color: #462d86;
+        color: #0D2D62;
       }
     }
   }
@@ -22,11 +22,13 @@
     align-items: center;
     justify-content: space-around;
     padding: 0 10%;
-    a{
-      font-size: 18px;
+    .a{
+      font-size: 20px;
       color: black;
-    }
-    a{
+      transition: 300ms ease-in-out;
+      &:hover{
+        color: #B80924;
+      }
       button{
         font-size: 16px;
         padding: 3px 10px;
@@ -42,6 +44,9 @@
           margin-right: 5px;
         }
       }
+    }
+    .active{
+      color: #B80924;
     }
   }
 }

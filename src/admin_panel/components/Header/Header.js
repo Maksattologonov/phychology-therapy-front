@@ -13,9 +13,9 @@ const Wrapper = styled.div`
 const AdminPageIcon = styled.span`
   font-size: 22px;
   font-weight: bold;
-  color: #883210;
+  color: #B80924;
   span{
-    color: #462d86;
+    color: #0D2D62;
   }
 `
 const LogOut = styled.span`

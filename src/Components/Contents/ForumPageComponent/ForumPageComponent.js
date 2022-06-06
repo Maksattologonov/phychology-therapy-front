@@ -1,29 +1,16 @@
 import React from "react"
 import classes from "./ForumPageStyle.module.scss";
-import {useNavigate} from "react-router-dom";
+import Subtitle from "../../Common/Subtitle/SubtitleComponent";
+import MoreButton from "../../Common/MoreButton/MoreButton";
 
 function ForumPageComponent(){
 
-    const navigate = useNavigate();
-
-    const goFormsClickHandler = (e)=>{
-        e.preventDefault();
-        navigate('/form/forms');
-    }
-
-    const createNewFormHandler = (e)=>{
-        e.preventDefault();
-        navigate('/form/create-new-form');
-    }
-
     return(
         <div className={classes.form_wrapper}>
+            <Subtitle>
+                Форум
+            </Subtitle>
             <div className={classes.left_block}>
-                <div className={classes.card_title}>
-                <span>
-                    Форум
-                </span>
-                </div>
                 <div className={classes.title}>
                     Форум - это площадка для обсуждения беспокоящих вас тем
                 </div>
@@ -32,12 +19,12 @@ function ForumPageComponent(){
                     Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
                     Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
                     <span className={classes.button_wrapper}>
-                        <button onClick={goFormsClickHandler}>
-                            Перейти в Форумы
-                        </button>
-                        <button onClick={createNewFormHandler}>
+                        <MoreButton link='/form/forms'>
+                            Форумы
+                        </MoreButton>
+                        <MoreButton link='/form/create-new-form'>
                             Создать Форум
-                        </button>
+                        </MoreButton>
                     </span>
                 </p>
             </div>
