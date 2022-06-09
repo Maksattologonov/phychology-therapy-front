@@ -63,7 +63,7 @@ function AuthPageComponent(props){
                     <div className={classes.form_title}>{form_title}</div>
                     <div className={classes.nav}>
                         <ul className={classes.links}>
-                            <li><NavLink className={classes.home_link} to={'/home'}><span>Ho</span>me</NavLink></li>
+                            <li><NavLink className={classes.home_link} to={'/home'}>Home</NavLink></li>
                             <li><NavLink to={'/auth/registration'} className={form_type==='reg'?classes.sign_active:''}>Sign up</NavLink></li>
                             <li><NavLink to={'/auth/authorization'} className={form_type==='author'?classes.sign_active:''}> Sign in </NavLink></li>
                         </ul>

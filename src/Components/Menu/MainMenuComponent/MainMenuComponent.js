@@ -37,7 +37,9 @@ function MainMenuComponent(){
         <div className={classes.menu_wrapper}>
 
             <div className={classes.main_icon_wrapper} >
-                <NavLink to={'/'}>
+                <NavLink to={'/'}  onClick={()=>{
+                    menuItemClickHandler(setMenuItems, '/');
+                }}>
                     <div> Manas<span>Univ</span> </div>
                 </NavLink>
             </div>
@@ -63,14 +65,20 @@ function MainMenuComponent(){
                     state.authentication?
                         <>
                             <NavLink to="/user/account" className={classes.a}>
-                                <button>
+                                <button onClick={()=>{
+                                    menuItemClickHandler(setMenuItems, '/user/account');
+                                }}>
                                     <img src={user_icon} alt=""/>
                                     Кабинет
                                 </button>
                             </NavLink>
                         </>:
                         <NavLink to="/auth/authorization" className={classes.a}>
-                            <button>Войти</button>
+                            <button onClick={()=>{
+                                menuItemClickHandler(setMenuItems, '/auth/authorization');
+                            }}>
+                                Войти
+                            </button>
                         </NavLink>
                 }
             </div>

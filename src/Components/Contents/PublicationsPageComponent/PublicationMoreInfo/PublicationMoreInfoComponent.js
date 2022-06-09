@@ -1,9 +1,10 @@
 import React, {useEffect} from "react";
 import classes from "./PublicationMoreInfoStyle.module.scss";
-import {Redirect, useNavigate, useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {getImageUrl} from "../../../../config/fileConfig";
 import publication_def_image from "../../../../images/publication_card_defoalt_image.png";
+import Subtitle from "../../../Common/Subtitle/SubtitleComponent";
 
 function PublicationMoreInfoComponent(){
 
@@ -25,16 +26,13 @@ function PublicationMoreInfoComponent(){
     return(
         publications[id]?
             <div className={classes.publication_more_wrapper}>
-                <div className={classes.title_wrapper}>
+                <Subtitle>
                     СТАТЬЯ
-                </div>
+                </Subtitle>
                 <div className={classes.context_wrapper}>
-                <span>
-                    {publications[id].title}
-                    <button onClick={goBack}>
-                        {"<- назад"}
-                    </button>
-                </span>
+                    <span>
+                        {publications[id].title}
+                    </span>
                     <div>
                         <p> {publications[id].description} </p>
                         {
@@ -43,6 +41,9 @@ function PublicationMoreInfoComponent(){
                                 <img src={getImageUrl(publications[id].image)} alt=""/>
                         }
                     </div>
+                    <button onClick={goBack}>
+                        {"<- назад"}
+                    </button>
                 </div>
             </div>
             :

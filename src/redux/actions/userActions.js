@@ -1,8 +1,4 @@
 import {
-    APPOINTMENT_INPUT_NAME,
-    APPOINTMENT_INPUT_PHONE_NUMBER,
-    APPOINTMENT_INPUT_PROBLEM,
-    APPOINTMENT_INPUT_SESSION_TYPE,
     DELETE_USER_FORUM,
     GET_USER_INFO,
     LOAD_USER_FORUMS,
@@ -108,32 +104,5 @@ export function userSpinnerStart(){
 export function userSpinnerEnd(){
     return{
         type: USER_SPINNER_END
-    }
-}
-
-
-// User appointment
-export function appointmentInputName(payload){
-    return{
-        type: APPOINTMENT_INPUT_NAME,
-        payload: payload
-    }
-}
-export function appointmentInputSessionType(payload){
-    return{
-        type: APPOINTMENT_INPUT_SESSION_TYPE,
-        payload: payload
-    }
-}
-export function appointmentInputPhoneNumber(payload){
-    return{
-        type: APPOINTMENT_INPUT_PHONE_NUMBER,
-        payload: payload
-    }
-}
-export function appointmentInputProblem(payload){
-    return{
-        type: APPOINTMENT_INPUT_PROBLEM,
-        payload: payload
     }
 }

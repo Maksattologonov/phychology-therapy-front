@@ -55,8 +55,7 @@ function UserAccountPage(){
         <div className={classes.user_wrapper}>
             <div className={classes.left_block}>
                 <div className={classes.user}>
-                    <img src="https://contrastly.com/wp-content/uploads/focus-1-1.jpg" alt=""/>
-                    <span>{state.nick_name}</span>
+                    {state.nick_name}
                 </div>
                 <div className={classes.user_menu_wrapper}>
                     {

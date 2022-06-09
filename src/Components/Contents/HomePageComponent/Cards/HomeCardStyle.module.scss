@@ -11,13 +11,14 @@
         display: flex;
         align-items: center;
         font-size: 18px;
+        color: #B80924;
       }
       span:before{
         content: '';
         display: block;
         width: 40px;
         height: 3px;
-        background-color: #1D2130;
+        background-color: #B80924;
         margin-right: 10px;
         border-radius: 1px;
       }

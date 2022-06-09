@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 `
 const Menu = styled.div`
   width: 100%;
-  padding: 80px 50px;
+  padding: 80px 0 80px 100px ;
   position: sticky;
 `
 

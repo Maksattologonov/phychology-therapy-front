@@ -1,0 +1,18 @@
+.wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .button{
+    padding: 8px 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    background-color: #a6a6a6;
+    font-size: 15px;
+    color: #e5e5e5;
+  }
+  .enabled{
+    background-color: #0D2D62;
+    color: white;
+  }
+}
