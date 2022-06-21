@@ -1,0 +1,21 @@
+.wrapper{
+  width: 48%;
+  margin: 8px;
+  padding: 35px 20px;
+  background-color: white;
+  color: #B80924;
+  box-shadow: 0 1px 3px #87a7e7;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  p{
+    margin-left: 8px;
+  }
+  &:hover{
+    color: #0D2D62;
+    box-shadow: 0 1.5px 5px #87a7e7;
+  }
+}

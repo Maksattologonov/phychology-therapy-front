@@ -37,8 +37,9 @@ export default function Dashboard(){
     const [menuLinks, setMenuLinks] = useState([
         {path: '/admin/profile', text: "Профиль", icon: <FaUser/>, isActive: false},
         {path: '/admin/publications', text: "Публикации", icon: <GrArticle/>, isActive: false},
-        {path: '/admin/admissions', text: "Запись на прием", icon: <AiOutlineUnorderedList/>, isActive: false},
+        {path: '/admin/gallery', text: "Галерея", icon: <FaForumbee/>, isActive: false},
         {path: '/admin/forums', text: "Форумы", icon: <FaForumbee/>, isActive: false},
+        {path: '/admin/employee', text: "Сотрудники", icon: <FiUsers/>, isActive: false},
         {path: '/admin/users', text: "Пользователи", icon: <FiUsers/>, isActive: false},
         {path: '/admin/archive', text: "Архив", icon: <BsArchive/>, isActive: false}
     ]);

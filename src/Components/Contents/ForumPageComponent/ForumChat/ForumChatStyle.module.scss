@@ -1,0 +1,38 @@
+.chat_wrapper{
+  padding: 30px 120px 10px 120px;
+  .back{
+    width: 100%;
+    margin-bottom: 20px;
+    color: #462d86;
+    span{
+      cursor: pointer;
+      font-size: 16px;
+    }
+  }
+  .p{
+    width: 100%;
+    text-align: center;
+    color: #B80924;
+  }
+  .forum_description{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 20px 0 10px 0;
+    font-size: 18px;
+    color: #1D2130;
+    box-shadow: inset 0 0 5px #f1a2a2;
+    padding: 25px 0;
+    border-radius: 5px;
+    .left{
+      width: 15%;
+      text-align: center;
+      color: #B80924;
+    }
+    .right{
+      width: 85%;
+      padding-right: 5%;
+    }
+
+  }
+}

@@ -1,52 +1,52 @@
 import {call, takeEvery, put} from 'redux-saga/effects';
 import {
     ADD_NEW_FORM,
-    ADD_NEW_FORUM_COMMENT, DELETE_FORUM_COMMENT,
-    GET_FROM_BY_ID,
+    ADD_NEW_FORUM_COMMENT, DELETE_FORUM_COMMENT, GET_FORUM_CATALOGS, GET_FORUM_COMMENTS,
     LOAD_FORMS,
     UPDATE_FORUM_COMMENT
-} from "../types/formTypes";
-import loadForms from "./apiRequests/form/loadForms";
+} from "../types/forumTypes";
+import loadForums from "./apiRequests/forum/loadForums";
 import {
-    addNewFormSuccess, forumCommentOpSuccess, forumSpinnerEnd, forumSpinnerStart,
-    getFormByIdSuccess,
-    loadFormsSuccess,
+    addNewFormSuccess, forumSpinnerEnd, forumSpinnerStart, getForumCommentsAction, loadFormsAction,
+    loadForumsSuccess, setForumCatalogs, setForumComments,
 } from "../actions/forumActions";
 import {toast} from "react-toastify";
-import addForm from "./apiRequests/form/addForm";
-import getForumComments from "./apiRequests/form/getForumComments";
-import newForumComment from "./apiRequests/form/newForumComment";
-import updateComment from "./apiRequests/form/updateComment";
-import deleteComment from "./apiRequests/form/deleteComment";
+import addForum from "./apiRequests/forum/addForum";
+import getForumComments from "./apiRequests/forum/getForumComments";
+import newForumComment from "./apiRequests/forum/newForumComment";
+import updateComment from "./apiRequests/forum/updateComment";
+import deleteComment from "./apiRequests/forum/deleteComment";
+import getForumCatalogs from "./apiRequests/forum/getForumCatalogs";
 
-function* formAddWorker(action){
-    let response = yield call(addForm, action.payload);
+function* addNewForumWorker(action){
+    let response = yield call(addForum, action.payload);
     if(response.error){
         toast.error(response.message)
     }else{
         yield put(addNewFormSuccess());
+        yield put(loadFormsAction({id: action.payload.catalog_id}));
         toast.info('Форум успешно создан !');
     }
 }
 function* formsLoadWorker(action){
     yield put(forumSpinnerStart());
-    let response = yield call(loadForms, action.payload);
+    let response = yield call(loadForums, action.payload);
     if(response.error){
         yield put(forumSpinnerEnd());
         toast.error(response.message);
     }else{
-        yield put(loadFormsSuccess(response.data));
+        yield put(loadForumsSuccess(response.data));
         yield put(forumSpinnerEnd());
     }
 }
-function* getForumByIdWorker(action){
+function* getForumCommentsWorker(action){
     yield put(forumSpinnerStart());
     let response = yield call(getForumComments, action.payload);
     if(response.error){
         toast.error(response.message);
         yield put(forumSpinnerEnd());
     }else{
-        yield put(getFormByIdSuccess(response.data));
+        yield put(setForumComments(response.data));
         yield put(forumSpinnerEnd());
     }
 }
@@ -56,7 +56,7 @@ function* addNewForumCommentWorker(action){
         toast.error(response.message);
     }else{
         toast.info('Комментарий успешно добавлен!');
-        yield put(forumCommentOpSuccess());
+        yield put(getForumCommentsAction({id: action.payload.forum_id}));
     }
 }
 function* updateForumCommentWorker(action){
@@ -65,7 +65,7 @@ function* updateForumCommentWorker(action){
         toast.error(response.message);
     }else{
         toast.info('Комментарий успешно обновлен!');
-        yield put(forumCommentOpSuccess());
+        yield put(getForumCommentsAction({id: action.payload.forum_id}));
     }
 }
 function* deleteForumCommentWorker(action){
@@ -74,14 +74,26 @@ function* deleteForumCommentWorker(action){
         toast.error(response.message);
     }else{
         toast.info('Комментарий успешно удален!');
-        yield put(forumCommentOpSuccess());
+        yield put(getForumCommentsAction({id: action.payload.forum_id}));
+    }
+}
+function* getForumCatalogsWorker(){
+    yield put(forumSpinnerStart());
+    let response = yield call(getForumCatalogs);
+    if(response.error){
+        yield put(forumSpinnerEnd());
+        toast.error(response.message);
+    }else{
+        yield put(forumSpinnerEnd());
+        yield put(setForumCatalogs(response.data));
     }
 }
 
 function* formWatcher(){
+    yield takeEvery(GET_FORUM_CATALOGS, getForumCatalogsWorker);
     yield takeEvery(LOAD_FORMS, formsLoadWorker);
-    yield takeEvery(ADD_NEW_FORM, formAddWorker);
-    yield takeEvery(GET_FROM_BY_ID, getForumByIdWorker);
+    yield takeEvery(ADD_NEW_FORM, addNewForumWorker);
+    yield takeEvery(GET_FORUM_COMMENTS, getForumCommentsWorker);
     yield takeEvery(ADD_NEW_FORUM_COMMENT,addNewForumCommentWorker);
     yield takeEvery(UPDATE_FORUM_COMMENT, updateForumCommentWorker);
     yield takeEvery(DELETE_FORUM_COMMENT, deleteForumCommentWorker)

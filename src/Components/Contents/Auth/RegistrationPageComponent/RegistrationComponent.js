@@ -9,7 +9,6 @@ import {
     regEmailAction,
     regFirstNameAction, registrationUser,
     regLastNameAction,
-    regNickNameAction,
     regPasswordAction,
 } from "../../../../redux/actions/authActions";
 import {toast} from "react-toastify";
@@ -18,7 +17,7 @@ import {useNavigate} from "react-router-dom";
 function RegistrationComponent(){
 
     const state = useSelector(state=>state.registration_state);
-    const isAuthorization = useSelector(state=>state.authorization_state.authentication);
+    const isAuthorization = useSelector(state=>state.user_info.token);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -34,7 +33,6 @@ function RegistrationComponent(){
     let isReady = false;
     if( state.first_name!==''&&
         state.last_name!==''&&
-        state.nick_name!==''&&
         state.email!==''&&
         state.password!=='') isReady=true;
 
@@ -48,7 +46,6 @@ function RegistrationComponent(){
                 dispatch(registrationUser({
                     name: state.name,
                     last_name: state.last_name,
-                    anonymous_name: state.anonymous_name,
                     email: state.email,
                     password: state.password
                 }));
@@ -78,15 +75,6 @@ function RegistrationComponent(){
                 value={state.last_name}
                 tp={'ln'}
                 action={regLastNameAction}
-            />
-            <Input
-                text={"Ник"}
-                type={"text"}
-                description={"Ввод"}
-                inputHandler={nameInputHandler}
-                value={state.anonymous_name}
-                tp={'nn'}
-                action={regNickNameAction}
             />
             <Input
                 text={"Email"}

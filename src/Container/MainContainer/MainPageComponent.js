@@ -1,11 +1,12 @@
 import React from "react";
 import HomePageComponent from "../../Components/Contents/HomePageComponent/HomePageComponent";
 import {
-    FORM, FORM_CHAT, FORM_CREATING, FORMS_LIST,
+    EMPLOYEE_ACCOUNT,
+    FORUM, FORUM_CATALOGS, FORUM_CHAT, FORUM_CREATING, CATALOGS_FORUMS_LIST, GALLERY, GALLERY_CATALOG_IMAGES,
     HOME,
     PSYCHOLOGIST, PSYCHOLOGIST_APPOINTMENT,
     PUBLICATIONS,
-    PUBLICATIONS_PUBLICATION, USER_ACCOUNT,
+    PUBLICATIONS_PUBLICATION, USER, USER_ACCOUNT,
     WORK_WITH_WEBSITE
 } from "../../Controller/types/RouteTypes";
 import classes from "./MainPageStyle.module.scss";
@@ -15,16 +16,21 @@ import PublicationsPageComponent from "../../Components/Contents/PublicationsPag
 import PublicationMoreInfoComponent
     from "../../Components/Contents/PublicationsPageComponent/PublicationMoreInfo/PublicationMoreInfoComponent";
 import ForumPageComponent from "../../Components/Contents/ForumPageComponent/ForumPageComponent";
-import FormsComponent from "../../Components/Contents/ForumPageComponent/ForumsList/FormsComponent";
+import ForumsComponent from "../../Components/Contents/ForumPageComponent/ForumsList/ForumsComponent";
 import PsychologistPageComponent from "../../Components/Contents/PsychologistPageComponent/PsychologistPageComponent";
 import WorkWithWebsitePageComponent
     from "../../Components/Contents/WorkWithWebsitePageComponent/WorkWithWebsitePageComponent";
 import AppointmentComponent from "../../Components/Contents/PsychologistPageComponent/Appointment/AppointmentComponent";
-import FormChatComponent from "../../Components/Contents/ForumPageComponent/ForumChat/FormChatComponent";
-import UserAccountPage from "../../Components/Contents/UserPageComponent/UserAccountPage";
-import {toast, ToastContainer} from "react-toastify";
+import ForumChatComponent from "../../Components/Contents/ForumPageComponent/ForumChat/ForumChatComponent";
+import UserAccountPage from "../../Components/Contents/UserPageComponent/userAccount/userAccountPage";
+import {ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import CreateNewForm from "../../Components/Contents/ForumPageComponent/CreateNewForum/CreateNewForm";
+import CreateNewForum from "../../Components/Contents/ForumPageComponent/CreateNewForum/CreateNewForum";
+import RoleController from "../../Components/Contents/UserPageComponent/RoleController";
+import EmployeeAccountPage from "../../Components/Contents/UserPageComponent/EmployeeAccount/EmployeeAccountPage";
+import GalleryPage from "../../Components/Contents/GalleryPageComponent/GalleryPage";
+import ForumCatalogs from "../../Components/Contents/ForumPageComponent/ForumCatalogs/ForumCatalogs";
+import ImagesOfCatalog from "../../Components/Contents/GalleryPageComponent/ImageOfCatalog/ImagesOfCatalog";
 
 
 class MainPageComponent extends React.Component{
@@ -32,7 +38,6 @@ class MainPageComponent extends React.Component{
         super(props);
         this.content = 'Null';
     }
-
 
     render() {
 
@@ -49,17 +54,26 @@ class MainPageComponent extends React.Component{
             case PUBLICATIONS:
                 this.content = <PublicationsPageComponent/>
                 break;
-            case FORM:
+            case GALLERY:
+                this.content = <GalleryPage/>
+                break;
+            case GALLERY_CATALOG_IMAGES:
+                this.content = <ImagesOfCatalog/>
+                break;
+            case FORUM:
                 this.content = <ForumPageComponent/>;
                 break;
-            case FORMS_LIST:
-                this.content = <FormsComponent/>;
-                break
-            case FORM_CHAT:
-                this.content = <FormChatComponent/>;
+            case FORUM_CATALOGS:
+                this.content = <ForumCatalogs/>;
                 break;
-            case FORM_CREATING:
-                this.content = <CreateNewForm/>
+            case CATALOGS_FORUMS_LIST:
+                this.content = <ForumsComponent/>;
+                break
+            case FORUM_CHAT:
+                this.content = <ForumChatComponent/>;
+                break;
+            case FORUM_CREATING:
+                this.content = <CreateNewForum/>
                 break;
             case WORK_WITH_WEBSITE:
                 this.content = <WorkWithWebsitePageComponent/>;
@@ -67,8 +81,14 @@ class MainPageComponent extends React.Component{
             case PUBLICATIONS_PUBLICATION:
                 this.content = <PublicationMoreInfoComponent/>;
                 break;
+            case USER:
+                this.content = <RoleController/>;
+                break;
             case USER_ACCOUNT:
                 this.content = <UserAccountPage/>;
+                break;
+            case EMPLOYEE_ACCOUNT:
+                this.content = <EmployeeAccountPage/>;
                 break;
             default:
                 this.content = 'None';

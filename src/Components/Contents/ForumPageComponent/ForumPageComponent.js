@@ -19,10 +19,10 @@ function ForumPageComponent(){
                     Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
                     Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
                     <span className={classes.button_wrapper}>
-                        <MoreButton link='/form/forms'>
+                        <MoreButton link='/forum/catalogs'>
                             Форумы
                         </MoreButton>
-                        <MoreButton link='/form/create-new-form'>
+                        <MoreButton link='/forum/create-new-forum'>
                             Создать Форум
                         </MoreButton>
                     </span>

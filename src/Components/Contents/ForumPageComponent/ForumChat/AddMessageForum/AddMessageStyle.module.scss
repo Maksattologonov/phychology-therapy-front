@@ -3,24 +3,32 @@
   display: flex;
   justify-content: end;
   flex-wrap: wrap;
+  box-shadow: inset 0 0 5px #8c8c8c;
+  padding: 20px 10px;
+  border-radius: 5px;
+
   textarea{
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
     width: 100%;
     padding: 10px 20px;
     font-size: 16px;
     border: none;
     transition: 300ms ease-in-out;
+    background-color: #e3e3e3;
+    border-radius: 4px;
     &:focus{
+      background-color: #f3f3f3;
       outline: none;
-      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
     }
   }
   button{
-    background-color: #70C174;
-    padding: 8px 30px;
+    background-color: #0D2D62;
+    padding: 10px 30px;
     font-size: 16px;
     margin-top: 15px;
     cursor: pointer;
     border-radius: 5px;
+    color: white;
+    transition: 300ms ease-in-out;
+    border: none;
   }
 }

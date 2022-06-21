@@ -8,7 +8,7 @@ async function updateUserForumFunc(data){
         'Authorization': `Bearer ${data.token}`
     }
     let axios = appAxios(headers);
-    let url =  `/forum/update?id=${data.id}&title=${data.title}&description=${data.description}`
+    let url =  `/catalog/update/forum?id=${data.id}&title=${data.title}&description=${data.description}`
 
     let f_data = new FormData();
     f_data.append('image', data.image);

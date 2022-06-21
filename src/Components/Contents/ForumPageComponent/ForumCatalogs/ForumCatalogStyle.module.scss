@@ -1,0 +1,15 @@
+.wrapper{
+  padding: 0 100px;
+  .content{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  h5{
+    width: 100%;
+    color: #B80924;
+    padding: 30px 0;
+    text-align: center;
+  }
+}

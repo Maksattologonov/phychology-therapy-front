@@ -34,12 +34,7 @@ export function regLastNameAction(payload){
         payload: payload
     }
 }
-export function regNickNameAction(payload){
-    return{
-        type: REG_INPUT_NICK_NAME,
-        payload: payload
-    }
-}
+
 export function regEmailAction(payload){
     return{
         type: REG_INPUT_EMAIL,

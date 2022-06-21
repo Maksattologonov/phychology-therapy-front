@@ -10,11 +10,14 @@ import userInfo from "./apiRequests/user/userInfo";
 import updateUserData from "./apiRequests/user/updateUserData";
 
 import {
-    getUserInfo, setUserForums, setUserId,
-    userAccInputEmail,
-    userAccInputFirstName,
-    userAccInputLastName,
-    userAccInputNickName, userProcessSuccess
+    getUserInfo,
+    setUserForums,
+    setUserInfoEmail,
+    setUserInfoFirstName,
+    setUserInfoId,
+    setUserInfoLastName,
+    setUserInfoRole,
+    loadUserForums as loadUserForumsAction
 } from "../actions/userActions";
 import {toast} from "react-toastify";
 import loadUserForums from "./apiRequests/user/loadUserForums";
@@ -23,11 +26,18 @@ import updateUserForumFunc from "./apiRequests/user/updateUserForumFunc";
 
 function* getUserDataWorker(action){
     let response = yield call(userInfo, action.payload);
-    yield put(setUserId(response.data.id));
-    yield put(userAccInputFirstName(response.data.name));
-    yield put(userAccInputLastName(response.data.last_name));
-    yield put(userAccInputNickName(response.data.anonymous_name));
-    yield put(userAccInputEmail(response.data.email));
+    yield put(setUserInfoId(response.data.id));
+    yield put(setUserInfoFirstName(response.data.name));
+    yield put(setUserInfoLastName(response.data.last_name));
+    yield put(setUserInfoEmail(response.data.email));
+    if(response.data.is_student==="True"){
+        yield put(setUserInfoRole(3));
+    }else if(response.data.is_employee==="True"){
+        yield put(setUserInfoRole(2));
+    }else if(response.data.is_superuser==="True"){
+        yield put(setUserInfoRole(1));
+    }
+
 }
 
 function* updateUserDataWorker(action){
@@ -56,7 +66,9 @@ function* deleteUserForumsWorker(action){
         toast.error(response.message);
     }else{
         toast.info('Форум успешно удален!');
-        yield put(userProcessSuccess());
+        yield put(loadUserForumsAction({
+            token: action.payload.token
+        }));
     }
 }
 
@@ -66,7 +78,7 @@ function* updateUserForumWorker(action){
         toast.error(response.message);
     }else{
         toast.info('Форум успешно обновлен!');
-        yield put(userProcessSuccess());
+        yield put(loadUserForumsAction({token: action.payload.token}));
     }
 }
 

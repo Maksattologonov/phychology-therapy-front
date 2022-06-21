@@ -15,11 +15,11 @@ export default function Input(props){
             <input
                 className={cls.join(' ')}
                 type={props.type}
-                max={props.max}
+                maxLength={props.max}
                 name={props.name}
                 placeholder={props.pl}
                 value={props.value}
-                onChange={(e)=>props.inputHandler(e, props.t)}
+                onChange={(e)=>props.inputHandler(e.target.value)}
             />
         </div>
     )

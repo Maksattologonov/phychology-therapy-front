@@ -8,7 +8,7 @@
     width: 35%;
     padding-left: 100px;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 20px;
     a{
       color: #B80924;
       span{
@@ -23,7 +23,7 @@
     justify-content: space-around;
     padding: 0 10%;
     .a{
-      font-size: 20px;
+      font-size: 18px;
       color: black;
       transition: 300ms ease-in-out;
       &:hover{
@@ -31,7 +31,7 @@
       }
       button{
         font-size: 16px;
-        padding: 3px 10px;
+        padding: 4px 10px;
         cursor: pointer;
         color: #1D2130;
         background-color: white;
@@ -40,7 +40,7 @@
         display: flex;
         align-items: center;
         img{
-          height: 16px;
+          height: 15px;
           margin-right: 5px;
         }
       }

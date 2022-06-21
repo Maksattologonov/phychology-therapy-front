@@ -5,8 +5,6 @@ export function nameInputHandler(e, dispatch, act, type){
         dispatch(act(e.target.value));
     }else if(type==='ln'){
         dispatch(act(e.target.value));
-    }else if(type==='nn'){
-        dispatch(act(e.target.value));
     }
 }
 

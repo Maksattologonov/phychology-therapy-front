@@ -24,12 +24,13 @@ function MainMenuComponent(){
         menuItemClickHandler(setMenuItems, pathName);
     }, [])
 
-    let state = useSelector(state=>state.authorization_state);
+    let state = useSelector(state=>state.user_info);
     let pathName = useLocation().pathname;
     let [menuItems, setMenuItems] = useState([
         {url: '/psychologist', text:'Психолог', isActive: false,},
         {url: '/publications', text:'Публикации', isActive: false,},
-        {url: '/form', text:'Форум', isActive: false,},
+        {url: '/gallery', text:'Галерея', isActive: false,},
+        {url: '/forum', text:'Форум', isActive: false,},
         {url: '/work-with-website', text:'Сайт', isActive: false,},
     ])
 
@@ -62,9 +63,9 @@ function MainMenuComponent(){
                     })
                 }
                 {
-                    state.authentication?
+                    state.token?
                         <>
-                            <NavLink to="/user/account" className={classes.a}>
+                            <NavLink to="/user" className={classes.a}>
                                 <button onClick={()=>{
                                     menuItemClickHandler(setMenuItems, '/user/account');
                                 }}>

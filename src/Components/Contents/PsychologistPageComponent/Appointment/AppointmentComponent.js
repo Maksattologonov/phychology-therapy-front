@@ -2,8 +2,12 @@ import React, {useEffect, useRef, useState} from "react";
 import classes from "./AppointmentStyle.module.scss";
 import FormStepBar from "./Common/FormStepBar/FormStepBar";
 import Button from "./Common/Button/Button";
-import DateComponent from "./Common/Date/DateComponent";
-import {useSelector} from "react-redux";
+import CalendarComponent from "./Common/Calendar/CalendarComponent";
+import Input from "./Common/Input/Input";
+import RadioSelect from "./Common/RadioSelect/RadioSelect";
+import {useDispatch} from "react-redux";
+import {addAppointmentAction} from "../../../../redux/actions/appointmentActions";
+
 
 let doctors = [
     {id: 1, name: 'Asan Asanov'},
@@ -14,11 +18,15 @@ let doctors = [
 
 function AppointmentComponent(){
 
+    const dispatch = useDispatch();
+
     let [formState, setFormState] = useState({
-        doctor_id: null,
-        date: {}
+        doctor_id: '',
+        date: null,
+        phone_number: '',
+        address: '',
+        appointment_type: 'single'
     })
-    const user_state = useSelector(state=>state.user_state);
 
     // block 1
 
@@ -39,9 +47,39 @@ function AppointmentComponent(){
         setFormState({...formState, doctor_id: id})
     }
 
+    function inputPhoneNumberHandler(phone){
+        setFormState(prevState => {
+            return {...prevState, phone_number: phone}
+        })
+    }
+
+    function inputAddressHandler(address){
+        setFormState(prevState => {
+            return {...prevState, address: address}
+        })
+    }
+
+    function inputAppointmentTypeHandler(type){
+        setFormState(prevState => {
+            return {...prevState, appointment_type: type}
+        })
+    }
+
     function continueHandler(e){
         e.preventDefault();
         setProgress({...progress, current_step: 2, step_2: true});
+    }
+
+    function sendHandler(){
+        dispatch(addAppointmentAction(formState));
+        setFormState({
+                doctor_id: '',
+                date: null,
+                phone_number: '',
+                address: '',
+                appointment_type: 'single'}
+        );
+        setProgress({current_step: 1, step_2: false});
     }
 
     // block 2
@@ -79,7 +117,6 @@ function AppointmentComponent(){
                                                         className={classes.radio}
                                                         onChange={()=>doctorHandler(item.id)}
                                                     />
-
                                                     <label htmlFor='doctor_name'>{item.name}</label>
                                                 </div>
                                             )
@@ -88,37 +125,43 @@ function AppointmentComponent(){
                                 </div>
                             </div>
                             <div className={classes.right}>
-                            <span className={classes.title}>
-                                Ваши данные
-                            </span>
-                                {
-                                    user_state.email.length>0?
-                                        <>
-                                            <p className={classes.p}>
-                                                {user_state.first_name+" "+user_state.last_name}
-                                            </p>
-                                            <p className={classes.p}>
-                                                {user_state.email}
-                                            </p>
-                                            <br/>
-                                        </>:
-                                        <>
-                                            <p className={classes.p}>
-                                                Маалымат жок
-                                            </p>
-                                            <br/>
-                                        </>
-                                }
+                                <span className={classes.title}>
+                                    Дополнительные данные
+                                </span>
+                                <Input
+                                    isCorrect={formState.phone_number}
+                                    type="text"
+                                    label={'Телефон номер'}
+                                    max={10}
+                                    name={'phone'}
+                                    pl="0555999888"
+                                    value={formState.phone_number}
+                                    inputHandler={inputPhoneNumberHandler}
+                                />
+                                <Input
+                                    isCorrect={formState.address}
+                                    type="text"
+                                    label={'Адрес местом жительства'}
+                                    max={50}
+                                    name={'address'}
+                                    pl="Бишкек, ул.Алыкулова, д. 52"
+                                    value={formState.address}
+                                    inputHandler={inputAddressHandler}
+                                />
+                                <RadioSelect type={formState.appointment_type} changeHandler={inputAppointmentTypeHandler}/>
                                 <Button
                                     text={'Продолжить'}
-                                    enabled={formState.doctor_id}
+                                    enabled={formState.doctor_id&&formState.phone_number&&formState.address}
                                     clickHandler={continueHandler}
                                 />
                             </div>
                         </div>
                         :
                         <div className={classes.block_2}>
-                            <DateComponent/>
+                            <span className={classes.title}>
+                                Выберите дату
+                            </span>
+                            <CalendarComponent date={formState.date} dateHandler={setFormState} sendHandler={sendHandler}/>
                         </div>
                     }
 

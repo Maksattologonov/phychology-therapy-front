@@ -5,15 +5,21 @@ import userReducer from "./userReducers/userReducer";
 import verified from "./authReducers/verified";
 import forum from "./forumReducers/forum";
 import publicationReducer from "./publicationReducers/publicationReducer";
+import userInfoReducer from "./userInfoReducer";
+import appointment from "./appointmentReducers/appointment";
+import gallery from "./galleryReducers/gallery";
 
 
 const rootReducer = combineReducers({
     registration_state: registrationReducer,
     authorization_state: authorizationReducer,
     user_state: userReducer,
-        verified_state: verified,
+    user_info: userInfoReducer,
+    verified_state: verified,
     publication_state: publicationReducer,
-    form_state: forum
+    forum_state: forum,
+    appointment_state: appointment,
+    gallery_state: gallery
 })
 
 export default rootReducer;

@@ -27,12 +27,9 @@ function PublicationMoreInfoComponent(){
         publications[id]?
             <div className={classes.publication_more_wrapper}>
                 <Subtitle>
-                    СТАТЬЯ
+                    {publications[id].title}
                 </Subtitle>
                 <div className={classes.context_wrapper}>
-                    <span>
-                        {publications[id].title}
-                    </span>
                     <div>
                         <p> {publications[id].description} </p>
                         {

@@ -49,7 +49,7 @@
         justify-content: space-between;
         align-items: center;
         .left{
-          width: 48%;
+          width: 53%;
           .title{
             display: flex;
             width: 100%;
@@ -91,7 +91,7 @@
           }
         }
         .right{
-          width: 50%;
+          width: 45%;
           display: flex;
           justify-content: center;
           flex-wrap: wrap;
@@ -103,12 +103,6 @@
             font-size: 20px;
             margin-bottom: 25px;
           }
-          .p{
-            width: 100%;
-            text-align: center;
-            margin-bottom: 15px;
-            font-size: 14px;
-          }
         }
       }
       .block_2{
@@ -117,7 +111,14 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-
+        flex-wrap: wrap;
+        .title{
+          display: flex;
+          width: 100%;
+          justify-content: center;
+          font-size: 20px;
+          margin-bottom: 20px;
+        }
       }
     }
   }

@@ -1,0 +1,21 @@
+.forms_wrapper{
+  padding: 0 100px;
+  .forms_title{
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 40px;
+  }
+  .forms{
+    display: flex;
+    flex-wrap: wrap;
+    button{
+      border: none;
+      background-color: white;
+      padding: 5px;
+      font-size: 18px;
+      color: #0D2D62;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+  }
+}

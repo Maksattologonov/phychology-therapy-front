@@ -6,7 +6,7 @@ async function deleteUserForum(data){
         'Authorization': `Bearer ${data.token}`
     }
     let axios = appAxios(headers);
-    let url =  `/forum/delete?pk=${data.id}`
+    let url =  `/catalog/delete/forum?pk=${data.id}`
 
     let response = await axios.delete(url)
         .then(res=>{

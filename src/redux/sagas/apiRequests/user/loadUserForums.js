@@ -6,7 +6,7 @@ async function loadUserForums(data){
         'Authorization': `Bearer ${data.token}`
     }
     let axios = appAxios(headers);
-    let url =  `/forum/get-own?count=${data.count}&page=${data.page}`
+    let url =  `/catalog/get-own/forum`;
 
     let response = await axios.get(url)
         .then(res=>{

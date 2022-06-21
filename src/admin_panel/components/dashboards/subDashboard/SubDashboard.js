@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: end;
-  padding: 0 50px;
+  margin-bottom: 30px;
 `
 
 export default function SubDashboard(props){

@@ -3,12 +3,10 @@ import {
     GET_USER_INFO,
     LOAD_USER_FORUMS,
     SET_USER_FORUMS,
-    SET_USER_ID,
+    SET_USER_INFO_EMAIL,
+    SET_USER_INFO_FIRST_NAME,
+    SET_USER_INFO_ID, SET_USER_INFO_LAST_NAME, SET_USER_INFO_ROLE,
     UPDATE_USER_FORUM,
-    USER_ACC_INPUT_EMAIL,
-    USER_ACC_INPUT_FIRST_NAME,
-    USER_ACC_INPUT_LAST_NAME,
-    USER_ACC_INPUT_NICK_NAME,
     USER_LOG_OUT,
     USER_PROCESS_SUCCESS,
     USER_PROFILE_UPDATE,
@@ -17,33 +15,34 @@ import {
 } from "../types/userTypes";
 
 // User account
-export function setUserId(payload){
+export function setUserInfoId(payload){
     return{
-        type: SET_USER_ID,
+        type: SET_USER_INFO_ID,
         payload: payload
     }
 }
-export function userAccInputFirstName(payload){
+export function setUserInfoFirstName(payload){
     return{
-        type: USER_ACC_INPUT_FIRST_NAME,
+        type: SET_USER_INFO_FIRST_NAME,
         payload: payload
     }
 }
-export function userAccInputLastName(payload){
+export function setUserInfoLastName(payload){
     return{
-        type: USER_ACC_INPUT_LAST_NAME,
+        type: SET_USER_INFO_LAST_NAME,
         payload: payload
     }
 }
-export function userAccInputNickName(payload){
+export function setUserInfoEmail(payload){
     return{
-        type: USER_ACC_INPUT_NICK_NAME,
+        type: SET_USER_INFO_EMAIL,
         payload: payload
     }
 }
-export function userAccInputEmail(payload){
+
+export function setUserInfoRole(payload){
     return{
-        type: USER_ACC_INPUT_EMAIL,
+        type: SET_USER_INFO_ROLE,
         payload: payload
     }
 }
