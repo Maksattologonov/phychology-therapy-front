@@ -44,15 +44,13 @@ export default function Profile(props){
                 {
                     subMenu.profile?
                         <ProfileInfo
-                            // name={user_info.first_name + ' '+ user_info.last_name}
-                            // email={user_info.email}
-                            name="Amankul Altynbek uulu"
-                            email="1804.01025@manas.edu.kg"
+                            name={user_info.first_name + ' '+ user_info.last_name}
+                            email={user_info.email}
                         />:
                             subMenu.change_profile?
                                 <ProfileUpdate
-                                    first_name={''}
-                                    last_name={''}
+                                    first_name={user_info.first_name}
+                                    last_name={user_info.last_name}
                                 />:
                                     <ContentMessage>
                                          У вас нет личных данных, как вы сюда попали ?

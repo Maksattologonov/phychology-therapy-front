@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  width: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,10 +31,11 @@ const FormBlock = styled.form`
    color: #0D2D62;
  `
 
+
 export default function Form(props){
 
     return(
-        <Wrapper>
+        <Wrapper style={{width: props.width}}>
             <FormBlock>
                 <Label>{props.title}</Label>
                 {props.children}

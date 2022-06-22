@@ -23,6 +23,7 @@ export default function CalendarComponent(props){
     const currentDay = moment();
     const lastActiveDay = currentDay.clone().add(14, "days");
     let dateFormat = 'YYYY-MM-DD';
+    let endFormat = 'YYYY-MM-DD hh:mm';
 
     let [selectedDate, setSelectedDate] = useState({
         date: moment().add(1, 'd'),
@@ -58,7 +59,7 @@ export default function CalendarComponent(props){
                 if(endSession.isAfter(lunchStart)){
                     break;
                 }else{
-                    tempHours.push(startHour.format());
+                    tempHours.push(startHour.format(endFormat));
                 }
                 startHour.add(weekTimes.sessionDuration, 'minutes');
             }
@@ -67,7 +68,7 @@ export default function CalendarComponent(props){
                 if(endSession.isAfter(endHour)){
                     break;
                 }else{
-                    tempHours.push(lunchEnd.format());
+                    tempHours.push(lunchEnd.format(endFormat));
                 }
                 lunchEnd.add(weekTimes.sessionDuration, 'minutes');
             }

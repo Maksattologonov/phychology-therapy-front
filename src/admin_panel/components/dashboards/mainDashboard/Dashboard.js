@@ -4,7 +4,7 @@ import DashboardButton from "admin_panel/components/dashboards/mainDashboard/Das
 import {FaUser, FaForumbee} from "react-icons/fa";
 import {GrArticle} from "react-icons/gr";
 import {FiUsers} from "react-icons/fi";
-import {BsArchive} from "react-icons/bs";
+import {BsArchive, BsImages} from "react-icons/bs";
 import {AiOutlineUnorderedList} from "react-icons/ai";
 import {useNavigate} from "react-router-dom";
 import {useLocation} from "react-router-dom";
@@ -37,7 +37,7 @@ export default function Dashboard(){
     const [menuLinks, setMenuLinks] = useState([
         {path: '/admin/profile', text: "Профиль", icon: <FaUser/>, isActive: false},
         {path: '/admin/publications', text: "Публикации", icon: <GrArticle/>, isActive: false},
-        {path: '/admin/gallery', text: "Галерея", icon: <FaForumbee/>, isActive: false},
+        {path: '/admin/gallery', text: "Галерея", icon: <BsImages/>, isActive: false},
         {path: '/admin/forums', text: "Форумы", icon: <FaForumbee/>, isActive: false},
         {path: '/admin/employee', text: "Сотрудники", icon: <FiUsers/>, isActive: false},
         {path: '/admin/users', text: "Пользователи", icon: <FiUsers/>, isActive: false},

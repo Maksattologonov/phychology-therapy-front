@@ -46,7 +46,7 @@ export function forumsReset(){
         type: FORUMS_RESET
     }
 }
-// -------- forum comments--------------------
+// -------- form comments--------------------
 export function getForumCommentsAction(payload){
     return{
         type: GET_FORUM_COMMENTS,
@@ -78,7 +78,7 @@ export function deleteForumComment(payload){
     }
 }
 
-//---------- forum spinner----------------
+//---------- form spinner----------------
 export function forumSpinnerStart(){
     return{
         type: FORUM_SPINNER_START
@@ -90,7 +90,7 @@ export function forumSpinnerEnd(){
     }
 }
 
-//-------------forum catalog--------------
+//-------------form catalog--------------
 
 export function getForumCatalogs(){
     return{

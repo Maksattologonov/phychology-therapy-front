@@ -14,16 +14,14 @@ const Label = styled.label`
   font-size: 16px;
 `
 
-export default function Input(props){
-
-    const CustomInput = styled.input`
+const CustomTextArea = styled.textarea`
       width: 100%;
-      color: ${props.filled ? "#3f3f3f" : "#8d8d8d"};
       font-size: 16px;
       outline: none;
-      border: 1px solid ${props.filled ? "#98d0f6" : "#fd5a5a"};
-      box-shadow: inset 0 0 4px ${props.filled ? "#98d0f6" : "#fd5a5a"};
-      padding: 4px 5px;
+      color: #8d8d8d;
+      border: 1px solid #fd5a5a;
+      box-shadow: inset 0 0 4px #fd5a5a;
+      padding: 5px;
       transition: 300ms ease-in-out;
       border-radius: 3px;
 
@@ -34,15 +32,25 @@ export default function Input(props){
       }
     `
 
+const filled = {
+    color:"#3f3f3f",
+    border: "1px solid #98d0f6",
+    boxShadow: "inset 0 0 4px #98d0f6"
+}
+
+export default function Textarea(props){
+
     return(
         <Wrapper>
             <Label>
                 {props.label}
             </Label>
-            <CustomInput
-                type={props.type}
+            <CustomTextArea
                 value={props.value}
+                cols={30}
+                rows={5}
                 onChange={(e)=>props.changeHandler(e, props.t)}
+                style={props.filled?filled:null}
             />
         </Wrapper>
     )

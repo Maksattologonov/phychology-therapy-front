@@ -1,7 +1,6 @@
 import {
-    LOAD_PUBLICATIONS_SUCCESS,
     PUBLICATION_SPINNER_END,
-    PUBLICATION_SPINNER_START
+    PUBLICATION_SPINNER_START, SET_PUBLICATIONS
 } from "../../types/publicationTypes";
 
 const initial_state = {
@@ -11,7 +10,7 @@ const initial_state = {
 
 function publicationReducer(state=initial_state, action){
     switch (action.type){
-        case LOAD_PUBLICATIONS_SUCCESS:
+        case SET_PUBLICATIONS:
             return {...state, publications: action.payload}
         case PUBLICATION_SPINNER_START:
             return {...state, spinner: true}

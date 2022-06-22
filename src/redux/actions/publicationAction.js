@@ -1,8 +1,8 @@
 import {
     LOAD_PUBLICATIONS,
-    LOAD_PUBLICATIONS_SUCCESS,
+    SET_PUBLICATIONS,
     PUBLICATION_SPINNER_END,
-    PUBLICATION_SPINNER_START
+    PUBLICATION_SPINNER_START, DELETE_PUBLICATION, UPDATE_PUBLICATION
 } from "../types/publicationTypes";
 
 export function loadPublications(){
@@ -10,9 +10,22 @@ export function loadPublications(){
         type: LOAD_PUBLICATIONS
     }
 }
-export function loadPublicationsSuccess(payload){
+export function deletePublication(payload){
     return{
-        type: LOAD_PUBLICATIONS_SUCCESS,
+        type: DELETE_PUBLICATION,
+        payload: payload
+    }
+}
+export function updatePublication(payload){
+    return{
+        type: UPDATE_PUBLICATION,
+        payload: payload
+    }
+}
+
+export function setPublications(payload){
+    return{
+        type: SET_PUBLICATIONS,
         payload: payload
     }
 }

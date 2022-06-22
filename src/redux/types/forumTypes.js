@@ -9,7 +9,7 @@ export const FORUMS_RESET = 'FORUMS_RESET';
 export const FORUM_SPINNER_START = 'FORUM_SPINNER_START';
 export const FORUM_SPINNER_END = 'FORUM_SPINNER_END';
 
-//-----------------forum comments-----------------
+//-----------------form comments-----------------
 export const GET_FORUM_COMMENTS = 'GET_FORUM_COMMENTS'; //for saga
 export const SET_FORUM_COMMENTS = 'SET_FORUM_COMMENTS'//for redux
 export const FORUM_COMMENTS_RESET = 'FORUM_COMMENTS_RESET'

@@ -28,7 +28,7 @@ export default function Gallery(props){
             <Dashboard/>
             <ContentWrapper>
                 <SubDashboard>
-                    <SubMenuButton active={subMenu.catalogs} clickHandler={subMenuHandler} type={CATEGORY}>
+                    <SubMenuButton active={subMenu.category} clickHandler={subMenuHandler} type={CATEGORY}>
                         Каталоги
                     </SubMenuButton>
                     <SubMenuButton active={subMenu.images} clickHandler={subMenuHandler} type={IMAGES}>

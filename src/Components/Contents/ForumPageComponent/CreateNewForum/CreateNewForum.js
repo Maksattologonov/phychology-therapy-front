@@ -133,7 +133,7 @@ function CreateNewForum(){
                 </button>
             </form>
             <span className={classes.span}>
-                <NavLink to={'/forum/catalogs'}>
+                <NavLink to={'/form/catalogs'}>
                     Перейти на страницу с форумами
                 </NavLink>
             </span>

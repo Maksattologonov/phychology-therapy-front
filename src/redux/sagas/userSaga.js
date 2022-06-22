@@ -74,6 +74,7 @@ function* deleteUserForumsWorker(action){
 
 function* updateUserForumWorker(action){
     let response = yield call(updateUserForumFunc, action.payload);
+    console.log(response);
     if(response.error){
         toast.error(response.message);
     }else{

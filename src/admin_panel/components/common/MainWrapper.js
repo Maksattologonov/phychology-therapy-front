@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import {ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -14,6 +16,10 @@ export default function MainWrapper(props){
     return(
         <Wrapper>
             {props.children}
+
+            <ToastContainer
+                autoClose={15000}
+            />
         </Wrapper>
     )
 }

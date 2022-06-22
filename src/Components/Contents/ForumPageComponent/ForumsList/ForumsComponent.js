@@ -30,7 +30,7 @@ function ForumsComponent(){
     }
 
     const createForm = ()=>{
-        navigate('/forum/create-new-forum');
+        navigate('/form/create-new-form');
     }
 
     return(
