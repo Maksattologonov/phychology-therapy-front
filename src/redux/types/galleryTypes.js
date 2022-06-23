@@ -4,6 +4,7 @@ export const ADD_GALLERY_CATALOG = 'ADD_GALLERY_CATALOG'; //for saga
 export const UPDATE_GALLERY_CATALOG = 'UPDATE_GALLERY_CATALOG'; //for saga
 export const DELETE_GALLERY_CATALOG = 'DELETE_GALLERY_CATALOG'; //for saga
 export const GET_GALLERY_IMAGES = 'GET_GALLERY_IMAGES' //for saga
+export const ADD_GALLERY_IMAGE = 'ADD_GALLERY_IMAGE' //for saga
 
 export const SET_GALLERY_CATALOGS = 'SET_GALLERY_CATALOGS';//for redux
 export const SET_GALLERY_IMAGES = 'SET_GALLERY_IMAGES'//for redux

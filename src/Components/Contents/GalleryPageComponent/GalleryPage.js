@@ -5,7 +5,7 @@ import CatalogCard from "../../Common/CatalogCard/CatalogCard";
 import {BsImages} from "react-icons/bs";
 import {useDispatch, useSelector} from "react-redux";
 import SpinnerComponent from "../../Spinner/SpinnerComponent";
-import {getGalleryCatalogs, resetGalleryImages} from "../../../redux/actions/galleryActions";
+import {getGalleryCatalogsAction, resetGalleryImages} from "../../../redux/actions/galleryActions";
 
 function GalleryPage(){
 
@@ -16,7 +16,7 @@ function GalleryPage(){
     useEffect(()=>{
         dispatch(resetGalleryImages());
         if(catalogs.length===0){
-            dispatch(getGalleryCatalogs());
+            dispatch(getGalleryCatalogsAction());
         }
     }, [])
 

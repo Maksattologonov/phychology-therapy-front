@@ -1,6 +1,6 @@
 
 import {
-    ADD_GALLERY_CATALOG,
+    ADD_GALLERY_CATALOG, ADD_GALLERY_IMAGE,
     DELETE_GALLERY_CATALOG, GALLERY_SPINNER_ACTIVATE, GALLERY_SPINNER_DEACTIVATE,
     GET_GALLERY_CATALOGS, GET_GALLERY_IMAGES, RESET_GALLERY_IMAGES, SET_GALLERY_CATALOGS, SET_GALLERY_IMAGES,
     UPDATE_GALLERY_CATALOG
@@ -9,24 +9,24 @@ import {getImageUrl} from "../../config/fileConfig";
 
 //-------------------for saga----------------------------
 
-export function getGalleryCatalogs(){
+export function getGalleryCatalogsAction(){
     return {
         type: GET_GALLERY_CATALOGS
     }
 }
-export function addGalleryCatalog(payload){
+export function createGalleryCategoryAction(payload){
     return {
         type: ADD_GALLERY_CATALOG,
         payload:payload
     }
 }
-export function deleteGalleryCatalog(payload){
+export function deleteGalleryCatalogAction(payload){
     return {
         type: DELETE_GALLERY_CATALOG,
         payload:payload
     }
 }
-export function updateGalleryCatalog(payload){
+export function updateGalleryCatalogAction(payload){
     return {
         type: UPDATE_GALLERY_CATALOG,
         payload:payload
@@ -35,6 +35,12 @@ export function updateGalleryCatalog(payload){
 export function getGalleryImagesAction(payload){
     return {
         type: GET_GALLERY_IMAGES,
+        payload: payload
+    }
+}
+export function addGalleryImageAction(payload){
+    return{
+        type: ADD_GALLERY_IMAGE,
         payload: payload
     }
 }

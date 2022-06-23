@@ -1,5 +1,5 @@
 import {call, takeEvery, put} from 'redux-saga/effects';
-import {DELETE_PUBLICATION, LOAD_PUBLICATIONS, UPDATE_PUBLICATION} from "../types/publicationTypes";
+import {ADD_PUBLICATION, DELETE_PUBLICATION, LOAD_PUBLICATIONS, UPDATE_PUBLICATION} from "../types/publicationTypes";
 import {
     loadPublications,
     publicationSpinnerEnd,
@@ -67,7 +67,32 @@ async function updatePublicationHandler(payload){
 
     let response = await axios.patch(url)
         .then(res=>{
-            console.log(res);
+            return {
+                error: false,
+                data: res.data
+            };
+        })
+        .catch(reject=>{
+            return {
+                error: true,
+                message: reject.detail
+            };
+        })
+    return response;
+}
+async function addPublicationHandler(payload){
+    let headers = {
+        'accept': 'application/json',
+        'Content-Type': 'multipart/form-data',
+        'Authorization': `Bearer ${payload.token}`
+    }
+    let data = new FormData();
+    data.append('image', payload.data.image);
+    let axios = appAxios(headers);
+    let url = `/article/create?title=${payload.data.title}&description=${payload.data.description}`;
+
+    let response = await axios.post(url)
+        .then(res=>{
             return {
                 error: false,
                 data: res.data
@@ -116,9 +141,21 @@ function* publicationUpdateWorker(action){
         toast.info('Обновление прошло успешно');
     }
 }
+function* publicationAddWorker(action){
+    let res = yield call(addPublicationHandler,action.payload);
+    if(res.error){
+        toast.warning("Что то пошло не так");
+        yield put(publicationSpinnerEnd())
+    }else{
+        yield put(loadPublications());
+        yield put(publicationSpinnerEnd())
+        toast.info('Добавление прошло успешно');
+    }
+}
 
 export default function* publicationWatcher(){
     yield takeEvery(LOAD_PUBLICATIONS, publicationsLoadWorker);
     yield takeEvery(DELETE_PUBLICATION, publicationDeleteWorker);
     yield takeEvery(UPDATE_PUBLICATION, publicationUpdateWorker);
+    yield takeEvery(ADD_PUBLICATION, publicationAddWorker);
 }

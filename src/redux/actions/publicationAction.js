@@ -2,7 +2,7 @@ import {
     LOAD_PUBLICATIONS,
     SET_PUBLICATIONS,
     PUBLICATION_SPINNER_END,
-    PUBLICATION_SPINNER_START, DELETE_PUBLICATION, UPDATE_PUBLICATION
+    PUBLICATION_SPINNER_START, DELETE_PUBLICATION, UPDATE_PUBLICATION, ADD_PUBLICATION
 } from "../types/publicationTypes";
 
 export function loadPublications(){
@@ -19,6 +19,12 @@ export function deletePublication(payload){
 export function updatePublication(payload){
     return{
         type: UPDATE_PUBLICATION,
+        payload: payload
+    }
+}
+export function addPublication(payload){
+    return{
+        type: ADD_PUBLICATION,
         payload: payload
     }
 }

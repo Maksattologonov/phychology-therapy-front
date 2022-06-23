@@ -60,6 +60,13 @@ const Content = styled.div`
     padding: 0 15px;
   }
 `
+const Image = styled.img`
+  max-width: 150px;
+  max-height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin: 5px 20px;
+`
 
 export default function ItemCard(props){
 
@@ -78,9 +85,14 @@ export default function ItemCard(props){
                 <span>
                     {props.index+1}
                 </span>
-                <p>
-                    {props.text}
-                </p>
+                {
+                    props.image?
+                        <Image src={props.image} alt=''/>
+                            :
+                            <p>
+                                {props.text}
+                            </p>
+                }
             </Content>
         </Wrapper>
     )

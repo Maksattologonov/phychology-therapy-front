@@ -2,6 +2,7 @@
 export const LOAD_PUBLICATIONS = 'LOAD_PUBLICATIONS'; //for saga
 export const DELETE_PUBLICATION = 'DELETE_PUBLICATION' // for saga
 export const UPDATE_PUBLICATION = 'UPDATE_PUBLICATION' // for saga
+export const ADD_PUBLICATION = 'ADD_PUBLICATION'; // for saga
 
 export const SET_PUBLICATIONS = 'SET_PUBLICATIONS'; //for redux
 

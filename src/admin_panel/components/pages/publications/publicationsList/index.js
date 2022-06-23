@@ -46,11 +46,17 @@ export default function PublicationsList(props){
         })
     }
 
+    function closeUpdatePage(id){
+        setUpdateArticle(prevState => {
+            return{id: null, update: false}
+        })
+    }
+
     return(
         <Wrapper>
             {
                 updateArticle.update?
-                    <PublicationUpdate id={updateArticle.id}/>:
+                    <PublicationUpdate id={updateArticle.id} closeUpdatePage={closeUpdatePage}/>:
                     spinner?
                         <SpinnerComponent/>
                         :
