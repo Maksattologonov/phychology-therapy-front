@@ -8,8 +8,8 @@ import {deleteForumComment, updateForumComment} from "../../../../../redux/actio
 import {toast} from "react-toastify";
 
 function MessageComponent(props){
-    const auth = useSelector(state=>state.authorization_state);
-    const user_id = useSelector(state=>state.user_state.id);
+    const token = useSelector(state=>state.user_info.token);
+    const user_id = useSelector(state=>state.user_info.id);
     const dispatch = useDispatch();
     let [editComment, setEditComment] = useState({
         isEdit: false,
@@ -22,7 +22,7 @@ function MessageComponent(props){
             if(editComment.comment!==props.data.description){
                 toast.info('Запрос отправлен, ждите!');
                 dispatch(updateForumComment({
-                    token: auth.token,
+                    token: token,
                     comment_id: props.data.id,
                     description: editComment.comment
                 }))
@@ -34,25 +34,25 @@ function MessageComponent(props){
     }
 
     function deleteHandler(){
-        dispatch(deleteForumComment({token: auth.token,id: props.data.id}));
+        toast.info("Удаление пока не работает !");
+        // dispatch(deleteForumComment({token: token, id: props.data.id}));
     }
 
     return(
         <div className={classes.message_wrapper}>
             <div className={classes.user}>
-                <img src={user_icon} alt=""/>
-                <span className={classes.nick_name}>{props.data.anonymous_name}</span>
+                Ответ:
             </div>
             <div className={classes.text}>
                 {props.data.description}
             </div>
             {
-                auth.authentication&&props.m?
+                token&&props.m?
                         props.data.user_id===user_id?
                             <>
                                 <div className={classes.control_wrapper}>
                                     <AiOutlineEdit onClick={()=>{setEditComment(prevState => {return {comment: props.data.description, isEdit: true}})}}/>
-                                    {/*<TiDeleteOutline onClick={deleteHandler}/>*/}
+                                    <TiDeleteOutline onClick={deleteHandler}/>
                                 </div>
 
                                 {

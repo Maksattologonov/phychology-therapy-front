@@ -16,10 +16,10 @@ function AuthorizationComponent(){
     let isReady = false;
 
     useEffect(()=>{
-        if(state.authentication){
-            navigate("/user/account");
+        if(state.success){
+            navigate("/user");
         }
-    }, [state.authentication]);
+    }, [state.success]);
 
     function sendHandler(e){
         e.preventDefault();

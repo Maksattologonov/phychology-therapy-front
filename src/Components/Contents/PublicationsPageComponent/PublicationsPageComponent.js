@@ -4,6 +4,7 @@ import PublicationCardComponent from "./PublicationCard/PublicationCardComponent
 import SpinnerComponent from "../../Spinner/SpinnerComponent";
 import {useDispatch, useSelector} from "react-redux";
 import {loadPublications} from "../../../redux/actions/publicationAction";
+import Subtitle from "../../Common/Subtitle/SubtitleComponent";
 
 function PublicationsPageComponent(){
 
@@ -18,9 +19,9 @@ function PublicationsPageComponent(){
 
     return(
         <div className={classes.publication_wrapper}>
-            <div className={classes.title_wrapper}>
+            <Subtitle>
                 Публикации
-            </div>
+            </Subtitle>
             {
                 state.spinner?
                     <SpinnerComponent/>

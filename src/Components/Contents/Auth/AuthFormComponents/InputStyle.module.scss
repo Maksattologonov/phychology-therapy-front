@@ -38,13 +38,13 @@
   border: none;
   border-radius: 20px;
   margin-top: 15px;
-  background: rgba(28, 96, 6, 0.2);
+  background: #ee3751;
   transition: 300ms ease-in-out;
   cursor: pointer;
 }
 
 .but_disabled{
-  background: rgba(28, 96, 6, 0.05);
+  background: rgb(145, 145, 145);
   color: #d5d5d5;
   cursor: not-allowed;
 }

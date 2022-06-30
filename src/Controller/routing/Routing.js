@@ -9,7 +9,7 @@ import ErrorPage from "../../Components/ErrorPage404/ErrorPage";
 
 export default function Routing(){
 
-    const authentication = useSelector(state=>state.authorization_state.authentication);
+    const token = useSelector(state=>state.user_info.token);
 
     return(
         <Routes>
@@ -22,21 +22,22 @@ export default function Routing(){
             }
 
             {
-                authentication?
-                userRoutes.map((item, index)=>{
-                    return(
-                        <Route exact={item.exact} path={item.url} element={<MainPageComponent contentType={item.type} />} key={index}/>
-                    )
-                }): null
-            }
-
-            {
                 authRoutes.map((item, index)=>{
                     return(
                         <Route exact={item.exact} path={item.url} element={<AuthPageComponent contentType={item.type} />} key={index}/>
                     )
                 })
             }
+
+            {
+                token?
+                    userRoutes.map((item, index)=>{
+                        return(
+                            <Route exact={item.exact} path={item.url} element={<MainPageComponent contentType={item.type} />} key={index}/>
+                        )
+                    }): null
+            }
+
             {
                 admin_routes.map((item, index)=>{
                     return(

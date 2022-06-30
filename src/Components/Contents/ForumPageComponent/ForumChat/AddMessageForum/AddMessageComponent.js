@@ -6,7 +6,7 @@ import {toast} from "react-toastify";
 
 function AddMessageComponent(props){
 
-    const token = useSelector(state=>state.authorization_state.token);
+    const token = useSelector(state=>state.user_info.token);
     const dispatch = useDispatch();
     const [comment, setComment] = useState('');
 

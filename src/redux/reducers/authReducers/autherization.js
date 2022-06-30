@@ -8,8 +8,7 @@ import {USER_LOG_OUT} from "../../types/userTypes";
 const initial_state = {
     email: '',
     password: '',
-    token: '',
-    authentication: false,
+    success: false
 }
 
 
@@ -21,13 +20,7 @@ export default function authorizationReducer(state = initial_state, action){
         case AUTH_INPUT_PASSWORD:
             return {...state, password: action.payload};
         case  USER_AUTHORIZATION_SUCCESS:
-            return {
-                ...state,
-                authentication: true,
-                token: action.payload,
-                email: '',
-                password: ''
-            }
+            return {...state, success: true}
         case USER_LOG_OUT:
             return {...initial_state}
         default:

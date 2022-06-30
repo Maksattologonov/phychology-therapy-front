@@ -1,0 +1,30 @@
+.wrapper{
+  display: flex;
+  align-items: center;
+  .item{
+    font-size: 15px;
+    padding: 8px 20px;
+    background-color: #DFE8F6;
+    margin-right: 5px;
+    color: #b0b0b0;
+    &:hover{
+      cursor: not-allowed;
+    }
+  }
+  .filling{
+    border: 1px solid #e7a2a2;
+    border-bottom: 2px solid #B80924;
+    color: #B80924;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  .filled{
+    border: 1px solid #adc5ee;
+    border-bottom: 2px solid #0D2D62;
+    color: #0D2D62;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}

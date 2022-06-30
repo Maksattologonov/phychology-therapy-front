@@ -1,0 +1,35 @@
+.wrapper{
+  width: 90%;
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .title{
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+    color: #595959;
+  }
+  .select{
+    width: 49%;
+    box-shadow: inset 0 0 3px #1D2130;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    color: #868686;
+    input{
+      cursor: pointer;
+    }
+    .label{
+      margin-left: 5px;
+      cursor: pointer;
+    }
+  }
+  .active{
+    box-shadow: inset 0 0 3px #0032ff;
+    color: #0032ff;
+  }
+}

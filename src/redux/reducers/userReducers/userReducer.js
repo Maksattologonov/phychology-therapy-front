@@ -1,18 +1,11 @@
 import {
-    SET_USER_FORUMS, SET_USER_ID,
-    USER_ACC_INPUT_EMAIL,
-    USER_ACC_INPUT_FIRST_NAME,
-    USER_ACC_INPUT_LAST_NAME,
-    USER_ACC_INPUT_NICK_NAME, USER_LOG_OUT, USER_PROCESS_SUCCESS,
+    SET_EMPLOYEES,
+    SET_USER_FORUMS, SET_USERS, USER_PROCESS_SUCCESS, USER_SPINNER_END, USER_SPINNER_START,
 } from "../../types/userTypes";
 
 const initial_state = {
-    id: '',
-    first_name: '',
-    last_name: '',
-    nick_name: '',
-    email: '',
-    avatar: '',
+    users: [],
+    employees: [],
     forums: {
         data: [],
         pagination: {
@@ -27,22 +20,18 @@ const initial_state = {
 export default function userReducer(state=initial_state, action){
 
     switch (action.type){
-        case SET_USER_ID:
-            return {...state, id: action.payload};
-        case USER_ACC_INPUT_FIRST_NAME:
-            return {...state, first_name: action.payload};
-        case USER_ACC_INPUT_LAST_NAME:
-            return {...state, last_name: action.payload};
-        case USER_ACC_INPUT_NICK_NAME:
-            return {...state, nick_name: action.payload};
-        case USER_ACC_INPUT_EMAIL:
-            return {...state, email: action.payload};
         case SET_USER_FORUMS:
             return {...state, forums: {...state.forums, data: action.payload, success: false}}
         case USER_PROCESS_SUCCESS:
             return {...state, forums: {...state.forums, success: true}}
-        case USER_LOG_OUT:
-            return { ... initial_state }
+        case USER_SPINNER_START:
+            return {...state, spinner: true}
+        case USER_SPINNER_END:
+            return {...state, spinner: false}
+        case SET_USERS:
+            return {...state, users: action.payload}
+        case SET_EMPLOYEES:
+            return {...state, employees: action.payload}
         default:
             return state;
     }

@@ -5,6 +5,13 @@
   position: relative;
   border-radius: 5px;
   overflow: hidden;
+  transition: 300ms ease-in-out;
+  &:hover{
+    box-shadow: 0 0 6px 3px rgb(148, 168, 236);
+    .card_text{
+      color: white;
+    }
+  }
   img{
     position: absolute;
     width: 100%;
@@ -12,13 +19,14 @@
     object-fit: cover;
   }
   .card_text{
+    transition: 300ms ease-in-out;
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: 1;
     background: linear-gradient(180deg, rgb(0, 0, 0, .2) 30.86%, rgb(0, 0, 0, .7) 65.87%, rgb(0, 0, 0, 1) 100%);
     padding: 50px;
-    color: white;
+    color: #B80924;
     display: flex;
     align-items: end;
     flex-wrap: wrap;
@@ -29,13 +37,6 @@
     span{
       content: '';
       width: 100%;
-    }
-    button{
-      padding: 10px 30px;
-      border-radius: 5px;
-      background-color: white;
-      color: black;
-      cursor: pointer;
     }
   }
 }

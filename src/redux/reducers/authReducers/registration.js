@@ -3,14 +3,12 @@ import {
     REG_INPUT_EMAIL,
     REG_INPUT_FIRST_NAME,
     REG_INPUT_LAST_NAME,
-    REG_INPUT_NICK_NAME,
     REG_INPUT_PASSWORD, USER_REGISTRATION_SUCCESS
 } from "../../types/authTypes";
 
 const initial_state = {
     name: '',
     last_name: '',
-    anonymous_name: '',
     email: '',
     password: '',
     isRegistration: false,
@@ -24,8 +22,6 @@ export default function registrationReducer(state = initial_state, action){
             return {...state, name: action.payload};
         case REG_INPUT_LAST_NAME:
             return {...state, last_name: action.payload};
-        case REG_INPUT_NICK_NAME:
-            return {...state, anonymous_name: action.payload};
         case REG_INPUT_EMAIL:
             return {...state, email: action.payload};
         case REG_INPUT_PASSWORD:

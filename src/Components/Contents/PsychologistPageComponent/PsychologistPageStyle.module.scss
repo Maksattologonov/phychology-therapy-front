@@ -12,28 +12,12 @@
       margin-left: 70px;
     }
     .contacts{
-      padding-left: 100px;
+      padding-left: 70px;
       span{
         content: '';
         display: block;
         padding: 7px 0;
         margin-bottom: 10px;
-      }
-      .social_but{
-        width: 150px;
-        background-color: #70C174;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: 300ms ease-in-out;
-        &:hover{
-          color: white;
-        }
-        p{
-          margin-left: 8px;
-        }
       }
     }
   }
@@ -41,17 +25,14 @@
   .block_2{
     p{
       margin-bottom: 15px;
-      padding-left: 70px;
     }
   }
 
   .block_3{
     p{
       margin-bottom: 15px;
-      padding-left: 70px;
     }
     .block_3_images{
-      padding: 30px 70px;
       width: 100%;
       img{
         margin: 15px;
@@ -66,26 +47,9 @@
 
   .blocks{
     width: 100%;
-    margin: 20px 0;
+    margin-bottom: 50px;
     h4{
-      content: '';
-      display: block;
-      width: 100%;
-      margin: 30px 0;
-      span{
-        display: flex;
-        align-items: center;
-        font-size: 16px;
-      }
-      span:before{
-        content: '';
-        display: block;
-        width: 60px;
-        height: 2px;
-        background-color: #1D2130;
-        margin-right: 10px;
-        border-radius: 1px;
-      }
+      margin-bottom: 30px ;
     }
   }
 }

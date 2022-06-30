@@ -1,90 +1,182 @@
-import React from "react";
+import React, {useEffect, useRef, useState} from "react";
 import classes from "./AppointmentStyle.module.scss";
+import FormStepBar from "./Common/FormStepBar/FormStepBar";
+import Button from "./Common/Button/Button";
+import CalendarComponent from "./Common/Calendar/CalendarComponent";
+import Input from "./Common/Input/Input";
+import RadioSelect from "./Common/RadioSelect/RadioSelect";
 import {useDispatch, useSelector} from "react-redux";
-import {
-    appointmentInputName,
-    appointmentInputPhoneNumber, appointmentInputProblem,
-    appointmentInputSessionType
-} from "../../../../redux/actions/userActions";
+import {addAppointmentAction, getAppointmentsAction} from "../../../../redux/actions/appointmentActions";
+import {useNavigate} from "react-router-dom";
+import {getEmployeesAction} from "../../../../redux/actions/userActions";
+
 
 function AppointmentComponent(){
 
-    const state = useSelector(state=>state.appointment_state);
     const dispatch = useDispatch();
+    const token = useSelector(state=>state.user_info.token);
+    const spinner = useSelector(state=>state.user_state.spinner);
+    const employees = useSelector(state=>state.user_state.employees);
+    const navigate = useNavigate();
 
-    function inputNameHandler(e){
-        dispatch(appointmentInputName(e.target.value));
-    }
-
-    function inputSessionTypeHandler(e){
-        if(e.target.values==='off'){
-            dispatch(appointmentInputSessionType(true));
+    useEffect(()=>{
+        if(!token){
+            navigate("/auth/authorization");
         }else{
-            dispatch(appointmentInputSessionType(false));
+            if(employees.length===0){
+                dispatch(getEmployeesAction({token: token}));
+            }
+        }
+    }, [])
+
+    let [formState, setFormState] = useState({
+        doctor_id: '',
+        date: null,
+        phone_number: '',
+        address: '',
+        appointment_type: 'single'
+    })
+
+    // block 1
+
+    let [progress, setProgress] = useState({
+        current_step: 1,
+        step_2: false
+    })
+
+    function progressHandler(step){
+        if(step===1){
+            setProgress({...progress, current_step: step});
+        }else if(step===2&&progress.step_2){
+            setProgress({...progress, current_step: step,});
         }
     }
 
-    function inputPhoneNumberHandler(e){
-        dispatch(appointmentInputPhoneNumber(e.target.value));
+    function doctorHandler(id){
+        setFormState({...formState, doctor_id: id});
+        dispatch(getAppointmentsAction({id:id}));
     }
 
-    function inputProblemHandler(e){
-        dispatch(appointmentInputProblem(e.target.value));
+    function inputPhoneNumberHandler(phone){
+        setFormState(prevState => {
+            return {...prevState, phone_number: phone}
+        })
     }
+
+    function inputAddressHandler(address){
+        setFormState(prevState => {
+            return {...prevState, address: address}
+        })
+    }
+
+    function inputAppointmentTypeHandler(type){
+        setFormState(prevState => {
+            return {...prevState, appointment_type: type}
+        })
+    }
+
+    function continueHandler(e){
+        e.preventDefault();
+        setProgress({...progress, current_step: 2, step_2: true});
+    }
+
+    function sendHandler(){
+        dispatch(addAppointmentAction({data: formState, token: token}));
+        setFormState({
+                doctor_id: '',
+                date: null,
+                phone_number: '',
+                address: '',
+                appointment_type: 'single'}
+        );
+        setProgress({current_step: 1, step_2: false});
+    }
+
+    // block 2
 
     return(
         <div className={classes.appointment_wrapper}>
-            <form>
-                <img src="https://www.careergirls.org/wp-content/uploads/2018/05/PSYCHOLOGIST_1920x1080-1920x1080.jpg" alt=""/>
-                <div className={classes.inputs_block}>
-                    <label className={classes.title_text}>
-                        Регистрация на прием
-                    </label>
-
-                    <div className={classes.select_box}>
-                        <div className={classes.select_box}>
-                            <label htmlFor={classes.select_box1} className={classes.label+' '+classes.select_box1}>
-                                <span className={classes.label_desc}>Вид приема</span>
-                            </label>
-                            <select id="select-box1" defaultValue={state.offline?'off':'on'} onChange={inputSessionTypeHandler} className={classes.select}>
-                                <option value='off' >Оффлайн</option>
-                                <option value='on' >Онлайн</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <input
-                        className={classes.input}
-                        type='text'
-                        placeholder='Ф.И.О.'
-                        maxLength={35}
-                        value={state.name}
-                        onChange={inputNameHandler}
-                    />
-
-                    <div className={classes.input}>
-                        <input
-                            type="tel"
-                            placeholder={'Тел. номер'}
-                            maxLength={17}
-                            value={state.phone_number}
-                            onChange={inputPhoneNumberHandler}
-                        />
-                        <span>Format: 0555 555 555</span>
-                    </div>
-                    <textarea
-                        className={classes.input}
-                        rows="3" cols="45"
-                        name="text"
-                        placeholder='Что вас беспокоит?'
-                        value={state.problem}
-                        onChange={inputProblemHandler}
-                    />
-                    <button>
-                        Записаться
-                    </button>
+            <div className={classes.content}>
+                <div className={classes.form_title}>
+                    Запись на прием
                 </div>
-            </form>
+                <div className={classes.progress_bar}>
+                    <FormStepBar clickHandler={progressHandler} step={progress.current_step} step_2_active={progress.step_2}/>
+                </div>
+                <div className={classes.inputs_block}>
+
+                    {progress.current_step===1?
+                        <div className={classes.block_1}>
+                            <div className={classes.left}>
+                                <div className={classes.title}>
+                                    Выберите специалиста
+                                </div>
+                                <div className={classes.selector}>
+                                    {
+                                        employees.map((item, index)=>{
+                                            return(
+                                                <div
+                                                    className={formState.doctor_id===item.id?classes.option+' '+classes.selected:classes.option}
+                                                    key={index}
+                                                    onClick={()=>doctorHandler(item.id)}
+                                                >
+                                                    <input
+                                                        type="radio"
+                                                        name='doctor_name'
+                                                        checked={formState.doctor_id===item.id?true:false}
+                                                        className={classes.radio}
+                                                        onChange={()=>doctorHandler(item.id)}
+                                                    />
+                                                    <label htmlFor='doctor_name'>{item.name+' '+item.last_name}</label>
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </div>
+                            </div>
+                            <div className={classes.right}>
+                                <span className={classes.title}>
+                                    Дополнительные данные
+                                </span>
+                                <Input
+                                    isCorrect={formState.phone_number}
+                                    type="text"
+                                    label={'Телефон номер'}
+                                    max={10}
+                                    name={'phone'}
+                                    pl="0555999888"
+                                    value={formState.phone_number}
+                                    inputHandler={inputPhoneNumberHandler}
+                                />
+                                <Input
+                                    isCorrect={formState.address}
+                                    type="text"
+                                    label={'Адрес местом жительства'}
+                                    max={50}
+                                    name={'address'}
+                                    pl="Бишкек, ул.Алыкулова, д. 52"
+                                    value={formState.address}
+                                    inputHandler={inputAddressHandler}
+                                />
+                                <RadioSelect type={formState.appointment_type} changeHandler={inputAppointmentTypeHandler}/>
+                                <Button
+                                    text={'Продолжить'}
+                                    enabled={formState.doctor_id&&formState.phone_number&&formState.address}
+                                    clickHandler={continueHandler}
+                                />
+                            </div>
+                        </div>
+                        :
+                        <div className={classes.block_2}>
+                            <span className={classes.title}>
+                                Выберите дату
+                            </span>
+                            <CalendarComponent date={formState.date} dateHandler={setFormState} sendHandler={sendHandler}/>
+                        </div>
+                    }
+
+                </div>
+            </div>
         </div>
     )
 }

@@ -1,16 +1,13 @@
 import {
+    ADD_FORUM_CATALOG,
     ADD_NEW_FORM,
     ADD_NEW_FORM_SUCCESS,
-    ADD_NEW_FORUM_COMMENT, DELETE_FORUM_COMMENT, FORUM_COMMENT_OP_SUCCESS,
-    FORUM_COMMENTS_RESET, FORUM_SPINNER_END, FORUM_SPINNER_START,
-    GET_FORM_BY_ID_SUCCESS,
-    GET_FROM_BY_ID,
+    ADD_NEW_FORUM_COMMENT, DELETE_FORUM_CATALOG, DELETE_FORUM_COMMENT,
+    FORUM_COMMENTS_RESET, FORUM_SPINNER_END, FORUM_SPINNER_START, FORUMS_RESET,
+    GET_FORUM_CATALOGS, GET_FORUM_COMMENTS,
     LOAD_FORM_SUCCESS,
-    LOAD_FORMS,
-    NEW_FORM_DESCRIPTION_INPUT,
-    NEW_FORM_IMAGE_INPUT,
-    NEW_FORM_TITLE_INPUT, UPDATE_FORUM_COMMENT,
-} from "../types/formTypes";
+    LOAD_FORMS, SET_FORUM_CATALOGS, SET_FORUM_COMMENTS, UPDATE_FORUM_COMMENT,
+} from "../types/forumTypes";
 
 export function addNewForm(payload){
     return{
@@ -31,7 +28,7 @@ export function loadFormsAction(payload){
     }
 }
 
-export function loadFormsSuccess(payload){
+export function loadForumsSuccess(payload){
     return{
         type: LOAD_FORM_SUCCESS,
         payload: payload
@@ -39,43 +36,29 @@ export function loadFormsSuccess(payload){
 
 }
 
-export function newFormTitleInput(payload){
-    return{
-        type: NEW_FORM_TITLE_INPUT,
-        payload: payload
-    }
-}
-export function newFormDescriptionInput(payload){
-    return{
-        type: NEW_FORM_DESCRIPTION_INPUT,
-        payload: payload
-    }
-}
-export function newFormImageInput(payload){
-    return{
-        type: NEW_FORM_IMAGE_INPUT,
-        payload: payload
-    }
-}
-
-export function getFormById(payload){
-    return{
-        type: GET_FROM_BY_ID,
-        payload: payload
-    }
-}
-export function getFormByIdSuccess(payload){
-    return{
-        type: GET_FORM_BY_ID_SUCCESS,
-        payload: payload
-    }
-}
 export function forumCommentsReset(){
     return{
         type: FORUM_COMMENTS_RESET
     }
 }
-
+export function forumsReset(){
+    return{
+        type: FORUMS_RESET
+    }
+}
+// -------- form comments--------------------
+export function getForumCommentsAction(payload){
+    return{
+        type: GET_FORUM_COMMENTS,
+        payload: payload
+    }
+}
+export function setForumComments(payload){
+    return{
+        type: SET_FORUM_COMMENTS,
+        payload: payload
+    }
+}
 export function addNewForumComment(payload){
     return{
         type: ADD_NEW_FORUM_COMMENT,
@@ -94,12 +77,8 @@ export function deleteForumComment(payload){
         payload: payload
     }
 }
-export function forumCommentOpSuccess(){
-    return{
-        type: FORUM_COMMENT_OP_SUCCESS
-    }
-}
 
+//---------- form spinner----------------
 export function forumSpinnerStart(){
     return{
         type: FORUM_SPINNER_START
@@ -108,5 +87,31 @@ export function forumSpinnerStart(){
 export function forumSpinnerEnd(){
     return{
         type: FORUM_SPINNER_END
+    }
+}
+
+//-------------form catalog--------------
+
+export function getForumCatalogs(){
+    return{
+        type: GET_FORUM_CATALOGS
+    }
+}
+export function setForumCatalogs(payload){
+    return{
+        type: SET_FORUM_CATALOGS,
+        payload: payload
+    }
+}
+export function addForumCatalog(payload){
+    return{
+        type: ADD_FORUM_CATALOG,
+        payload
+    }
+}
+export function deleteForumCatalog(payload){
+    return{
+        type: DELETE_FORUM_CATALOG,
+        payload
     }
 }

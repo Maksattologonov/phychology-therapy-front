@@ -22,7 +22,7 @@ export default function DashboardButton(props){
 
     const Wrapper = styled.div`
       text-emphasis-style: none;
-      color: ${props.isAcctive?'#0e56f5':'#1D2130'};
+      color: ${props.isAcctive?'#0D2D62':'#1D2130'};
       display: flex;
       border-radius: 3px;
       overflow: hidden;

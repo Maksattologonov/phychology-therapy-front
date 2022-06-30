@@ -4,7 +4,7 @@ import classes from "./SubtitleStyle.module.scss";
 export default function Subtitle(props){
 
     return(
-        <div className={classes.wrapper}>
+        <div className={classes.title_wrapper}>
             {props.children}
         </div>
     )

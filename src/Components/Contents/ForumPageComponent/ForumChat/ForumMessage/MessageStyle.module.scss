@@ -1,61 +1,52 @@
 .message_wrapper{
   width: 100%;
   margin-bottom: 10px;
-  padding: 20px 40px;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
-  background-color: #efecec;
+  padding: 25px 0;
+  box-shadow: inset 0 0 5px #a0b2f1;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   position: relative;
+  border-radius: 5px;
+  align-items: center;
+  flex-wrap: wrap;
   .user{
     width: 15%;
     text-align: center;
-    img{
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 50px;
-    }
-    .nick_name{
-      content: '';
-      display: block;
-      width: 100%;
-      text-align: center;
-      font-size: 16px;
-      padding: 10px;
-      color: #462d86;
-    }
+    color: #0D2D62;
+    font-size: 18px;
+
   }
   .text{
-    width: 83%;
-    padding: 20px 20px 10px 20px;
+    width: 85%;
+    padding-right: 5%;
   }
   .control_wrapper{
     width: 50px;
-    padding: 8px 0;
+    padding: 5px 0;
     position: absolute;
     font-size: 22px;
-    margin-left: 91%;
+    margin-left: 95%;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     cursor: pointer;
   }
   .form{
     width: 100%;
-    padding: 0 25px;
     margin-top: 15px;
     display: flex;
     flex-wrap: wrap;
     justify-content: end;
+    padding-right: 3%;
     .textarea{
-      width: 83%;
+      width: 84%;
       outline: none;
-      border: none;
       padding: 10px;
       font-size: 14px;
-      margin-bottom: 10px;
+      margin: 10px 0;
       border-radius: 5px;
+      border: 1px solid #bdbdbd;
+      &:focus{
+        border: 1px solid #8ebce3;
+      }
     }
     .but_wrap{
       width: 100%;

@@ -8,11 +8,11 @@
     width: 35%;
     padding-left: 100px;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 20px;
     a{
-      color: #883210;
+      color: #B80924;
       span{
-        color: #462d86;
+        color: #0D2D62;
       }
     }
   }
@@ -22,14 +22,16 @@
     align-items: center;
     justify-content: space-around;
     padding: 0 10%;
-    a{
+    .a{
       font-size: 18px;
       color: black;
-    }
-    a{
+      transition: 300ms ease-in-out;
+      &:hover{
+        color: #B80924;
+      }
       button{
         font-size: 16px;
-        padding: 3px 10px;
+        padding: 4px 10px;
         cursor: pointer;
         color: #1D2130;
         background-color: white;
@@ -38,10 +40,13 @@
         display: flex;
         align-items: center;
         img{
-          height: 16px;
+          height: 15px;
           margin-right: 5px;
         }
       }
+    }
+    .active{
+      color: #B80924;
     }
   }
 }

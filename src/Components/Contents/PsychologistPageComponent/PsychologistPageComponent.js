@@ -1,9 +1,8 @@
 import React from "react";
 import classes from "./PsychologistPageStyle.module.scss";
-import {BsTelegram} from "react-icons/bs";
-import {AiOutlineMail, AiOutlineWhatsApp} from "react-icons/ai";
-import {BsInstagram} from "react-icons/bs";
 import {useNavigate} from "react-router-dom";
+import Subtitle from "../../Common/Subtitle/SubtitleComponent";
+import MoreButton from "../../Common/MoreButton/MoreButton";
 
 
 function PsychologistPageComponent(){
@@ -32,17 +31,23 @@ function PsychologistPageComponent(){
 
     return(
         <div className={classes.psychologist_wrapper}>
+            <Subtitle>
+                О психологе
+            </Subtitle>
             <div className={classes.block_1+" "+classes.blocks}>
-                <h4><span><h3>Специалист</h3></span></h4>
                 <img src="https://d5nunyagcicgy.cloudfront.net/external_assets/hero_examples/hair_beach_v391182663/original.jpeg" alt=""/>
                 <div className={classes.contacts}>
                     <span> <h2>Doctor's name</h2> </span>
                     <span> Психолог практик </span>
                     <span> <p>Phone number 1</p> </span>
-                    <span className={classes.social_but} onClick={(e)=>socialButHandler(e, 'w')}> <AiOutlineWhatsApp/><p>Whats app</p> </span>
-                    <span className={classes.social_but} onClick={(e)=>socialButHandler(e, 't')}> <BsTelegram/> <p>Telegram</p> </span>
-                    <span className={classes.social_but} onClick={(e)=>socialButHandler(e, 'i')}> <BsInstagram/><p>Instagram</p> </span>
-                    <span className={classes.social_but} onClick={(e)=>socialButHandler(e, 'e')}> <AiOutlineMail/><p>Email</p> </span>
+                    <span> <p>Whats app</p> </span>
+                    <span> <p>Telegram</p> </span>
+                    <span> <p>Instagram</p> </span>
+                    <span> <p>Email</p> </span>
+                    <br/>
+                    <MoreButton link={"/psychologist/appointment"} onClick={(e)=>socialButHandler(e, 'e')}>
+                        Записаться на прием
+                    </MoreButton>
                 </div>
             </div>
             <div className={classes.block_2+" "+classes.blocks}>
