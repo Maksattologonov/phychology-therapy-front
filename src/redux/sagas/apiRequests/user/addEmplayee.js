@@ -1,13 +1,12 @@
 import appAxios from "../../../../config/appAxios";
 
-export default async function   addAppointments(data){
+export default async function addEmployee(data){
     let headers = {
         'accept': 'application/json',
         'Authorization': `Bearer ${data.token}`
     }
-    let type = data.data.appointment_type==='single'?1:2;
     let axios = appAxios(headers);
-    let url =  `appointment/create?phone_number=${data.data.phone_number}&employee_id=${data.data.doctor_id}&address=${data.data.address}&status=1&type=${type}&date_time=${data.data.date}`;
+    let url =  `/auth/create-employee?name=${data.data.name}&last_name=${data.data.last_name}&email=${data.data.email}&password=${data.data.password}`;
 
     let response = await axios.post(url)
         .then(res=>{

@@ -1,21 +1,17 @@
 import {
-    ADD_APPOINTMENT,
+    ADD_APPOINTMENT, APPOINTMENT_SPINNER_END, APPOINTMENT_SPINNER_START,
     DELETE_APPOINTMENT,
-    GET_APPOINTMENTS, GET_DOCTORS,
-    SET_APPOINTMENTS, SET_DOCTORS,
+    GET_APPOINTMENTS,
+    SET_APPOINTMENTS,
     UPDATE_APPOINTMENT
 } from "../types/appointmentTypes";
 
 // ---------------- for saga --------------------
 
-export function getAppointmentsAction(){
+export function getAppointmentsAction(payload){
     return{
-        type: GET_APPOINTMENTS
-    }
-}
-export function getDoctorsAction(){
-    return{
-        type: GET_DOCTORS
+        type: GET_APPOINTMENTS,
+        payload: payload
     }
 }
 export function addAppointmentAction(payload){
@@ -46,9 +42,13 @@ export function setAppointmentsAction(payload){
         payload: payload
     }
 }
-export function setDoctorsAction(payload){
+export function appointmentSpinnerStart(){
     return{
-        type: SET_DOCTORS,
-        payload: payload
+        type: APPOINTMENT_SPINNER_START,
+    }
+}
+export function appointmentSpinnerEnd(){
+    return{
+        type: APPOINTMENT_SPINNER_END
     }
 }

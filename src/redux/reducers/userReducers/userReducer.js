@@ -1,8 +1,11 @@
 import {
-    SET_USER_FORUMS, USER_PROCESS_SUCCESS,
+    SET_EMPLOYEES,
+    SET_USER_FORUMS, SET_USERS, USER_PROCESS_SUCCESS, USER_SPINNER_END, USER_SPINNER_START,
 } from "../../types/userTypes";
 
 const initial_state = {
+    users: [],
+    employees: [],
     forums: {
         data: [],
         pagination: {
@@ -21,6 +24,14 @@ export default function userReducer(state=initial_state, action){
             return {...state, forums: {...state.forums, data: action.payload, success: false}}
         case USER_PROCESS_SUCCESS:
             return {...state, forums: {...state.forums, success: true}}
+        case USER_SPINNER_START:
+            return {...state, spinner: true}
+        case USER_SPINNER_END:
+            return {...state, spinner: false}
+        case SET_USERS:
+            return {...state, users: action.payload}
+        case SET_EMPLOYEES:
+            return {...state, employees: action.payload}
         default:
             return state;
     }

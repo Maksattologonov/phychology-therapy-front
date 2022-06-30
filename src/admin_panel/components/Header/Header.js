@@ -37,18 +37,12 @@ const LogOut = styled.span`
 
 export default function Header(props){
 
-    const token = useSelector(state=>state.user_info.token);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    useEffect(()=>{
-        if(!token){
-            navigate("/");
-        }
-    })
-
     function logOut(){
         dispatch(userLogOut());
+        navigate('/');
     }
 
     return(

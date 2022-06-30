@@ -1,11 +1,12 @@
 import appAxios from "../../../../config/appAxios";
 
-export default async function getDoctors(){
+export default async function getEmployees(data){
     let headers = {
-        'accept': 'application/json'
+        'accept': 'application/json',
+        'Authorization': `Bearer ${data.token}`
     }
     let axios = appAxios(headers);
-    let url =  `/gallery/get/title`;
+    let url =  `/auth/get-employees`;
 
     let response = await axios.get(url)
         .then(res=>{

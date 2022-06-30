@@ -1,7 +1,8 @@
 import {
+    ADD_FORUM_CATALOG,
     ADD_NEW_FORM,
     ADD_NEW_FORM_SUCCESS,
-    ADD_NEW_FORUM_COMMENT, DELETE_FORUM_COMMENT,
+    ADD_NEW_FORUM_COMMENT, DELETE_FORUM_CATALOG, DELETE_FORUM_COMMENT,
     FORUM_COMMENTS_RESET, FORUM_SPINNER_END, FORUM_SPINNER_START, FORUMS_RESET,
     GET_FORUM_CATALOGS, GET_FORUM_COMMENTS,
     LOAD_FORM_SUCCESS,
@@ -34,7 +35,6 @@ export function loadForumsSuccess(payload){
     }
 
 }
-
 
 export function forumCommentsReset(){
     return{
@@ -97,10 +97,21 @@ export function getForumCatalogs(){
         type: GET_FORUM_CATALOGS
     }
 }
-
 export function setForumCatalogs(payload){
     return{
         type: SET_FORUM_CATALOGS,
         payload: payload
+    }
+}
+export function addForumCatalog(payload){
+    return{
+        type: ADD_FORUM_CATALOG,
+        payload
+    }
+}
+export function deleteForumCatalog(payload){
+    return{
+        type: DELETE_FORUM_CATALOG,
+        payload
     }
 }

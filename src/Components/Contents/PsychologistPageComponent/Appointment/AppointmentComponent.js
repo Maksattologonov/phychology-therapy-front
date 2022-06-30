@@ -5,20 +5,29 @@ import Button from "./Common/Button/Button";
 import CalendarComponent from "./Common/Calendar/CalendarComponent";
 import Input from "./Common/Input/Input";
 import RadioSelect from "./Common/RadioSelect/RadioSelect";
-import {useDispatch} from "react-redux";
-import {addAppointmentAction} from "../../../../redux/actions/appointmentActions";
+import {useDispatch, useSelector} from "react-redux";
+import {addAppointmentAction, getAppointmentsAction} from "../../../../redux/actions/appointmentActions";
+import {useNavigate} from "react-router-dom";
+import {getEmployeesAction} from "../../../../redux/actions/userActions";
 
-
-let doctors = [
-    {id: 1, name: 'Asan Asanov'},
-    {id: 2, name: 'Esen Esenov'},
-    {id: 3, name: 'Joomart Chokmorov'},
-    {id: 4, name: 'Talant Rysbekov'},
-];
 
 function AppointmentComponent(){
 
     const dispatch = useDispatch();
+    const token = useSelector(state=>state.user_info.token);
+    const spinner = useSelector(state=>state.user_state.spinner);
+    const employees = useSelector(state=>state.user_state.employees);
+    const navigate = useNavigate();
+
+    useEffect(()=>{
+        if(!token){
+            navigate("/auth/authorization");
+        }else{
+            if(employees.length===0){
+                dispatch(getEmployeesAction({token: token}));
+            }
+        }
+    }, [])
 
     let [formState, setFormState] = useState({
         doctor_id: '',
@@ -44,7 +53,8 @@ function AppointmentComponent(){
     }
 
     function doctorHandler(id){
-        setFormState({...formState, doctor_id: id})
+        setFormState({...formState, doctor_id: id});
+        dispatch(getAppointmentsAction({id:id}));
     }
 
     function inputPhoneNumberHandler(phone){
@@ -71,7 +81,7 @@ function AppointmentComponent(){
     }
 
     function sendHandler(){
-        dispatch(addAppointmentAction(formState));
+        dispatch(addAppointmentAction({data: formState, token: token}));
         setFormState({
                 doctor_id: '',
                 date: null,
@@ -103,7 +113,7 @@ function AppointmentComponent(){
                                 </div>
                                 <div className={classes.selector}>
                                     {
-                                        doctors.map((item, index)=>{
+                                        employees.map((item, index)=>{
                                             return(
                                                 <div
                                                     className={formState.doctor_id===item.id?classes.option+' '+classes.selected:classes.option}
@@ -117,7 +127,7 @@ function AppointmentComponent(){
                                                         className={classes.radio}
                                                         onChange={()=>doctorHandler(item.id)}
                                                     />
-                                                    <label htmlFor='doctor_name'>{item.name}</label>
+                                                    <label htmlFor='doctor_name'>{item.name+' '+item.last_name}</label>
                                                 </div>
                                             )
                                         })

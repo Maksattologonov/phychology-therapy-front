@@ -26,7 +26,7 @@ export default function RadioSelect(props){
                     onChange={()=>{}}
                     name="radio1"
                 />
-                <label className={classes.label} htmlFor="radio1"> Single </label>
+                <label className={classes.label} htmlFor="radio1"> Одиночный </label>
             </div>
             <div
                 className={!isSingle?classes.select+' '+classes.active:classes.select}
@@ -38,7 +38,7 @@ export default function RadioSelect(props){
                     onChange={()=>{}}
                     name="radio2"
                 />
-                <label className={classes.label} htmlFor="radio2"> Multi </label>
+                <label className={classes.label} htmlFor="radio2"> Группавой </label>
             </div>
         </div>
     )

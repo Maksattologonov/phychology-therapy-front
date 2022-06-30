@@ -6,6 +6,9 @@ import ContentWrapper from "../../common/ContentWrapper";
 import SubDashboard from "../../dashboards/subDashboard/SubDashboard";
 import SubMenuButton from "../../common/SubMenuButton";
 import Footer from "../../Footer/Footer";
+import ContentMessage from "../../common/ContentMessage";
+import EmployeesList from "./employees";
+import AddEmployee from "./add_employee";
 
 const EMPLOYEES = 'CATEGORY';
 const ADD_EMPLOYEE = 'ADD_EMPLOYEE';
@@ -35,6 +38,16 @@ export default function Employees(props){
                         Добавить сотрудника
                     </SubMenuButton>
                 </SubDashboard>
+                {
+                    subMenu.employees?
+                        <EmployeesList/>:
+                        subMenu.add_employee?
+                            <AddEmployee/>:
+                            <ContentMessage>
+                                У вас нет личных данных, как вы сюда попали ?
+                            </ContentMessage>
+
+                }
             </ContentWrapper>
             <Footer/>
         </MainWrapper>

@@ -20,4 +20,17 @@ export const USER_PROCESS_SUCCESS = 'USER_PROCESS_SUCCESS';
 export const USER_SPINNER_START = 'USER_SPINNER_START';
 export const USER_SPINNER_END = 'USER_SPINNER_END';
 
+export const GET_USERS = 'GET_USERS';
+export const USER_LOCK = 'USER_LOCK';
+export const USER_UNLOCK = 'USER_UNLOCK';
+
+export const SET_USERS = 'SET_USERS';
+
+export const GET_EMPLOYEES = 'GET_EMPLOYEES';
+export const ADD_EMPLOYEE = 'ADD_EMPLOYEE';
+export const EMPLOYEE_LOCK = 'EMPLOYEE_LOCK';
+export const EMPLOYEE_UNLOCK = 'EMPLOYEE_UNLOCK';
+export const SET_EMPLOYEES = 'SET_EMPLOYEES';
+
+
 

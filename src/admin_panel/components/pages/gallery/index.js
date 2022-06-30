@@ -34,7 +34,7 @@ export default function Gallery(props){
         else if(type===CREATE_CATEGORY){
             setSubMenu({category: false, images: false, create_category: true, add_image: false});
         }else if(type===ADD_IMAGE){
-            setSubMenu({category: false, images: false, create_category: true, add_image: true});
+            setSubMenu({category: false, images: false, create_category: false, add_image: true});
         }
 
     }

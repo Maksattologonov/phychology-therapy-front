@@ -5,25 +5,22 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import Hour from "./Hour/Hour";
 import Button from "../Button/Button";
+import {useSelector} from "react-redux";
 
 let weekTimes = {
-    another:{start: "05:55", end: '17:00'},
-    saturday: {start: "05:30", end: '12:30'},
+    another:{start: "9:00", end: '17:00'},
+    saturday: {start: "9:00", end: '12:30'},
     lunch:{start: "12:30", end: '13:30'},
     sessionDuration: 40
 }
-
-let busyTimes = [
-
-]
-
 
 export default function CalendarComponent(props){
     moment.updateLocale('ru', {week: {dow: 1}});
     const currentDay = moment();
     const lastActiveDay = currentDay.clone().add(14, "days");
     let dateFormat = 'YYYY-MM-DD';
-    let endFormat = 'YYYY-MM-DD hh:mm';
+    let fullFormat = 'YYYY-MM-DD hh:mm';
+    const appointments = useSelector(state=>state.appointment_state.appointments)
 
     let [selectedDate, setSelectedDate] = useState({
         date: moment().add(1, 'd'),
@@ -59,7 +56,7 @@ export default function CalendarComponent(props){
                 if(endSession.isAfter(lunchStart)){
                     break;
                 }else{
-                    tempHours.push(startHour.format(endFormat));
+                    tempHours.push(startHour.format(fullFormat));
                 }
                 startHour.add(weekTimes.sessionDuration, 'minutes');
             }
@@ -68,7 +65,7 @@ export default function CalendarComponent(props){
                 if(endSession.isAfter(endHour)){
                     break;
                 }else{
-                    tempHours.push(lunchEnd.format(endFormat));
+                    tempHours.push(lunchEnd.format(fullFormat));
                 }
                 lunchEnd.add(weekTimes.sessionDuration, 'minutes');
             }
@@ -109,7 +106,7 @@ export default function CalendarComponent(props){
                                         key={index}
                                         text={item}
                                         flag={
-                                            busyTimes.find(el=>el.hour===item)?'busy':
+                                            appointments.find(el=>el.date_time===item)?'busy':
                                                 props.date===item?'selected':'free'
                                         }
                                         clickHandler={sessionTimeHandler}

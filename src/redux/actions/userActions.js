@@ -1,17 +1,18 @@
 import {
-    DELETE_USER_FORUM,
-    GET_USER_INFO,
-    LOAD_USER_FORUMS,
+    ADD_EMPLOYEE,
+    DELETE_USER_FORUM, EMPLOYEE_LOCK, EMPLOYEE_UNLOCK, GET_EMPLOYEES,
+    GET_USER_INFO, GET_USERS,
+    LOAD_USER_FORUMS, SET_EMPLOYEES,
     SET_USER_FORUMS,
     SET_USER_INFO_EMAIL,
     SET_USER_INFO_FIRST_NAME,
-    SET_USER_INFO_ID, SET_USER_INFO_LAST_NAME, SET_USER_INFO_ROLE,
-    UPDATE_USER_FORUM,
+    SET_USER_INFO_ID, SET_USER_INFO_LAST_NAME, SET_USER_INFO_ROLE, SET_USERS,
+    UPDATE_USER_FORUM, USER_LOCK,
     USER_LOG_OUT,
     USER_PROCESS_SUCCESS,
     USER_PROFILE_UPDATE,
     USER_SPINNER_END,
-    USER_SPINNER_START,
+    USER_SPINNER_START, USER_UNLOCK,
 } from "../types/userTypes";
 
 // User account
@@ -103,5 +104,61 @@ export function userSpinnerStart(){
 export function userSpinnerEnd(){
     return{
         type: USER_SPINNER_END
+    }
+}
+
+export function getUsersAction(payload){
+    return{
+        type: GET_USERS,
+        payload
+    }
+}
+export function userLockAction(payload){
+    return{
+        type: USER_LOCK,
+        payload
+    }
+}
+export function userUnlockAction(payload){
+    return{
+        type: USER_UNLOCK,
+        payload
+    }
+}
+export function setUsersAction(payload){
+    return{
+        type: SET_USERS,
+        payload
+    }
+}
+
+export function getEmployeesAction(payload){
+    return{
+        type: GET_EMPLOYEES,
+        payload
+    }
+}
+export function addEmployeeAction(payload){
+    return{
+        type: ADD_EMPLOYEE,
+        payload
+    }
+}
+export function employeeLockAction(payload){
+    return{
+        type: EMPLOYEE_LOCK,
+        payload
+    }
+}
+export function employeeUnlockAction(payload){
+    return{
+        type: EMPLOYEE_UNLOCK,
+        payload
+    }
+}
+export function setEmployeesAction(payload){
+    return{
+        type: SET_EMPLOYEES,
+        payload
     }
 }
