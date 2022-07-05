@@ -15,12 +15,12 @@ function ForumPageComponent(){
                     Форум - это площадка для обсуждения беспокоящих вас тем
                 </div>
                 <p>
-                    Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
-                    Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
-                    Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
+                    Очень часто люди, особенно в моменты тяжёлых переживаний, испытывают потребность в помощи психолога или просто в человеческом общении с людьми, которые испытали или испытывают в данный момент нечто подобное. Где найти такое общение? Ведь порой совсем не хочется делиться чем-то сокровенным даже с близкими родственниками, друзьями, которые могут не так понять, осудить, начать «воспитывать», а то и, того хуже, рассказать о ваших бедах и переживаниях посторонним людям. Что же делать?
+                    <br/>
+                    К счастью, в наш век психологическая помощь может сама «прийти» к нуждающемуся человеку домой. Как это возможно? Да очень просто – достаточно зайти на психологический форум.
                     <span className={classes.button_wrapper}>
                         <MoreButton link='/forum/catalogs'>
-                            Форумы
+                            Каталог форумов
                         </MoreButton>
                         <MoreButton link='/forum/create-new-forum'>
                             Создать Форум

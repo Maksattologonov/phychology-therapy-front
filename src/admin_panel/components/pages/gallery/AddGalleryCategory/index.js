@@ -72,7 +72,7 @@ export default function CreateCategory(props){
                             enabled={(category.title.length!==0&&category.description.length!==0)}
                             sendHandler={sendHandler}
                         >
-                            Изменить
+                            Добавить
                         </Button>
                     </Form>:
                     null

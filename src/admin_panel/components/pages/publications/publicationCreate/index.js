@@ -88,7 +88,7 @@ export default function PublicationCreate(props){
                             enabled={(article.title.length!==0&&article.description.length!==0)}
                             sendHandler={sendHandler}
                         >
-                            Изменить
+                            Добавить
                         </Button>
                     </Form>:
                     null
