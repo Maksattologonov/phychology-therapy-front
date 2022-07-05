@@ -3,7 +3,6 @@ import classes from "./PublicationMoreInfoStyle.module.scss";
 import {useNavigate, useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {getImageUrl} from "../../../../config/fileConfig";
-import publication_def_image from "../../../../images/publication_card_defoalt_image.png";
 import Subtitle from "../../../Common/Subtitle/SubtitleComponent";
 
 function PublicationMoreInfoComponent(){

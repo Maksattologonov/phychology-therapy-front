@@ -3,9 +3,8 @@ import appAxios from "../../../../config/appAxios";
 export default async function signUp(d){
 
     let axios = appAxios({'Content-Type': 'application/json'});
-     let data = JSON.stringify(d);
 
-    let response = await axios.post('/auth/sign-up', data)
+    let response = await axios.post('/auth/sign-up', d)
         .then(response=>{
             return {
                 data: response,
